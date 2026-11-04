@@ -20,46 +20,46 @@ export function PartnersPage({
   const [activeTab, setActiveTab] = useState<PartnerTab>(initialProgram)
 
   return (
-    <div className="w-full space-y-4 pt-2 pb-8">
-      {/* Top Segmented Control for 4 Programs */}
-      <div className="px-4 sticky top-14 sm:top-16 z-30 bg-background/95 backdrop-blur-xl py-2 border-b border-border">
+    <div className="w-full space-y-3 pt-2 pb-8">
+      {/* Top Segmented Control for 4 Programs - Positioned directly under MobileTopBar and scrolls naturally with content */}
+      <div className="px-4">
         <div className="flex rounded-2xl bg-secondary p-1 border border-border shadow-xs">
           <button
             onClick={() => setActiveTab("wholesale")}
-            className={`flex-1 py-2 text-[11px] sm:text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
+            className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
               activeTab === "wholesale"
-                ? "bg-card text-emerald-700 shadow-xs font-black"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-card text-foreground shadow-xs font-black"
+                : "text-muted-foreground hover:text-foreground font-medium"
             }`}
           >
             Wholesale
           </button>
           <button
             onClick={() => setActiveTab("dropship")}
-            className={`flex-1 py-2 text-[11px] sm:text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
+            className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
               activeTab === "dropship"
-                ? "bg-card text-amber-700 shadow-xs font-black"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-card text-foreground shadow-xs font-black"
+                : "text-muted-foreground hover:text-foreground font-medium"
             }`}
           >
             Dropship
           </button>
           <button
             onClick={() => setActiveTab("export")}
-            className={`flex-1 py-2 text-[11px] sm:text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
+            className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
               activeTab === "export"
-                ? "bg-card text-blue-700 shadow-xs font-black"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-card text-foreground shadow-xs font-black"
+                : "text-muted-foreground hover:text-foreground font-medium"
             }`}
           >
             Export
           </button>
           <button
             onClick={() => setActiveTab("affiliate")}
-            className={`flex-1 py-2 text-[11px] sm:text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
+            className={`flex-1 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer select-none active:scale-95 ${
               activeTab === "affiliate"
-                ? "bg-card text-red-600 shadow-xs font-black"
-                : "text-muted-foreground hover:text-foreground"
+                ? "bg-card text-foreground shadow-xs font-black"
+                : "text-muted-foreground hover:text-foreground font-medium"
             }`}
           >
             Affiliate

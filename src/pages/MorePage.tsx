@@ -9,7 +9,6 @@ import {
   ChevronRight,
   MapPin,
   Clock,
-  Sparkles,
 } from "lucide-react"
 import { FacebookIcon, TwitterIcon, LinkedinIcon, YoutubeIcon, InstagramIcon } from "../components/ui/SocialIcons"
 
@@ -164,7 +163,6 @@ export function MorePage({ onNavigateSubpage }: MorePageProps) {
       {/* Group 3: Direct Phone & Email Hotline Card */}
       <div className="rounded-3xl border border-border bg-secondary p-4 sm:p-5 space-y-3">
         <div className="flex items-center gap-2">
-          <Sparkles className="h-4 w-4 text-amber-500" />
           <span className="text-xs font-bold uppercase tracking-wide text-primary">
             Direct Assistance
           </span>

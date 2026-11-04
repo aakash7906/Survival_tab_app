@@ -147,23 +147,23 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">
-        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-bold text-red-700 tracking-wider uppercase">
-          <Award className="h-3.5 w-3.5 text-red-600 shrink-0" />
+      <div className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-red-50 border border-red-200 px-3 py-0.5 text-[11px] font-bold text-red-700 tracking-wider uppercase">
+          <Award className="h-3 w-3 text-red-600 shrink-0" />
           <span>VERIFIED CUSTOMER REVIEWS &bull; 4.9 / 5.0 RATING</span>
         </div>
 
-        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Trusted in the Field for Over 40 Years
         </h1>
 
-        <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Read genuine field reports from wilderness adventurers, search-and-rescue teams,
           survivalists, and families across America who rely on The Survival Tabs.
         </p>
 
         {/* Rating & Metric Snapshot */}
-        <div className="pt-2 sm:pt-4 grid grid-cols-1 min-[340px]:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto text-left">
+        <div className="pt-2 grid grid-cols-2 gap-2.5 max-w-4xl mx-auto text-left">
 
           <div className="rounded-2xl bg-secondary border border-border p-3.5 sm:p-4 space-y-1 text-center">
             <div className="flex items-center justify-center gap-1 text-amber-500">
@@ -213,7 +213,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
       </div>
 
       {/* Testimonials Masonry / Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 gap-4">
         {filteredReviews.map((review) => (
           <div
             key={review.id}
@@ -276,22 +276,22 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
       </div>
 
       {/* Trust & Guarantee Callout Banner */}
-      <div className="rounded-3xl bg-primary text-primary-foreground p-8 sm:p-12 shadow-md flex flex-col md:flex-row items-center justify-between gap-8">
-        <div className="space-y-3 text-center md:text-left max-w-xl">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-3.5 py-1 text-xs font-semibold text-amber-400">
-            <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+      <div className="rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 shadow-md flex flex-col items-center justify-between gap-5">
+        <div className="space-y-2 text-center max-w-xl">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-primary-foreground/10 px-3 py-0.5 text-[11px] font-semibold text-amber-400">
+            <ShieldCheck className="h-3 w-3 text-emerald-400" />
             <span>25-YEAR SHELF-LIFE GUARANTEE</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
             Ready to Secure Your Family's Emergency Food Supply?
           </h2>
-          <p className="text-xs sm:text-sm text-primary-foreground/80 leading-relaxed">
+          <p className="text-xs text-primary-foreground/80 leading-relaxed">
             Join thousands of preparedness families, wilderness outfitters, and first responders who
             count on The Survival Tabs for dependable, compact emergency nutrition.
           </p>
         </div>
 
-        <div className="shrink-0 flex flex-col sm:flex-row md:flex-col gap-3 w-full sm:w-auto">
+        <div className="shrink-0 flex flex-col gap-2.5 w-full">
           <button
             onClick={onOrderNow}
             className="flex items-center justify-center gap-2 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold px-7 py-3.5 text-xs uppercase tracking-wider shadow-lg hover:shadow-xl transition-all cursor-pointer hover:scale-105 active:scale-95"

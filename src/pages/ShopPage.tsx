@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Check, ShoppingCart, Truck, ShieldCheck, Sparkles } from "lucide-react"
+import { Check, ShoppingCart, Truck, ShieldCheck } from "lucide-react"
 import type { ProductItem } from "../components/PurchaseSection"
 
 const products: ProductItem[] = [
@@ -189,8 +189,8 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
         </div>
       </div>
 
-      {/* Mobile 2-Column Product Grid (3-4 columns on tablet) */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4">
+      {/* Mobile 2-Column Product Grid */}
+      <div className="grid grid-cols-2 gap-3">
         {filteredProducts.map((p) => {
           const isAdded = addedId === p.id
 
@@ -262,7 +262,6 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
       {onOpenCart && (
         <div className="rounded-2xl bg-secondary border border-border p-3.5 flex items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-amber-500 shrink-0" />
             <span className="font-semibold text-primary">Ready to review your rations?</span>
           </div>
           <button

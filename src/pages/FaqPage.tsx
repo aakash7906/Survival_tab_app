@@ -306,12 +306,12 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">  
-        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+      <div className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">  
+        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Frequently Asked Questions
         </h1>
 
-        <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Everything you need to know about The Survival Tabs: nutrition, 25-year shelf life,
           daily consumption protocols, bio-availability, and emergency preparedness.
         </p>

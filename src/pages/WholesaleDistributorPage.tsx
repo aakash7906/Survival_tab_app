@@ -75,13 +75,13 @@ export function WholesaleDistributorPage({
       </nav>
 
       {/* Main Header Card (Verbatim from User Image) */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-6">
-        <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
+      <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-4">
+        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
           WHY YOU WANT TO BE A DISTRIBUTOR
         </h1>
 
         {/* 4 Core Perks Row (Verbatim from image) */}
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm font-bold text-emerald-800">
+        <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs font-bold text-emerald-800">
           <span className="flex items-center gap-1.5">
             <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
             <span>Improved Market Information</span>
@@ -101,7 +101,7 @@ export function WholesaleDistributorPage({
         </div>
 
         {/* Verbatim Narrative Paragraph */}
-        <p className="text-sm sm:text-base lg:text-lg text-foreground max-w-3xl mx-auto leading-relaxed text-justify sm:text-center">
+        <p className="text-xs text-foreground max-w-3xl mx-auto leading-relaxed text-left">
           Distribution is a key part of any product based business, right up there with production, sales, and shopper marketing. Just because you&apos;re a small company doesn&apos;t mean you can ignore the need for efficient and cost-effective distribution. It&apos;s common for companies to outsource this and operations like retail marketing for many reasons. If your company has some of these reasons in common it may be time to start considering working with a distributor. If you want to be a Wholesale Distributor for Survival Tabs, then click below.
         </p>
 
@@ -136,7 +136,7 @@ export function WholesaleDistributorPage({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-4">
           {/* Perk 1 */}
           <div className="rounded-2xl bg-secondary border border-border p-6 space-y-3 shadow-xs hover:shadow-md transition-shadow">
             <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
@@ -192,20 +192,18 @@ export function WholesaleDistributorPage({
       </section>
 
       {/* Product Merchandising & Spec Highlights */}
-      <section className="rounded-2xl sm:rounded-3xl bg-primary text-primary-foreground p-6 sm:p-10 lg:p-12 shadow-xl border border-border">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-7 space-y-4">
-
-
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-primary-foreground leading-tight">
+      <section className="rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 shadow-xl border border-border">
+        <div className="flex flex-col gap-6">
+          <div className="space-y-3">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary-foreground leading-tight">
               Zero Expiration Loss with 25-Year Certified Shelf Life
             </h2>
 
-            <p className="text-xs sm:text-sm md:text-base text-primary-foreground/80 leading-relaxed">
+            <p className="text-xs text-primary-foreground/80 leading-relaxed">
               Unlike traditional food products that risk spoiling on your retail shelves or in your warehouse, Survival Tabs maintain a certified 25-year shelf life. There are zero inventory write-offs or markdown sales due to looming expiration dates.
             </p>
 
-            <div className="grid grid-cols-2 gap-4 pt-2 text-xs text-primary-foreground/80">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs text-primary-foreground/80">
               <div className="space-y-1">
                 <span className="font-bold text-primary-foreground block">Standard Retail Master Case</span>
                 <p className="text-primary-foreground/70">12 airtight canisters per carton, individual UPC barcodes.</p>
@@ -217,13 +215,13 @@ export function WholesaleDistributorPage({
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col items-center justify-center p-6 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/20 text-center space-y-3">
+          <div className="flex flex-col items-center justify-center p-5 rounded-2xl bg-primary-foreground/10 border border-primary-foreground/20 text-center space-y-2">
             <img
               src="/images/made-in-usa.png"
               alt="Made in USA"
-              className="h-14 w-auto object-contain"
+              className="h-12 w-auto object-contain"
             />
-            <h3 className="text-base font-bold text-primary-foreground uppercase tracking-wider">
+            <h3 className="text-sm font-bold text-primary-foreground uppercase tracking-wider">
               100% Sourced &amp; Made in USA
             </h3>
             <p className="text-xs text-primary-foreground/70 max-w-xs">
@@ -236,7 +234,7 @@ export function WholesaleDistributorPage({
       {/* Wholesale Distributor Application Form */}
       <section
         id="apply-form"
-        className="rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs space-y-8"
+        className="rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs space-y-6"
       >
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-primary">
@@ -412,7 +410,7 @@ export function WholesaleDistributorPage({
       </section>
 
       {/* Direct Contact Wholesale Desk */}
-      <section className="rounded-2xl bg-secondary border border-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="rounded-2xl bg-secondary border border-border p-5 flex flex-col gap-4">
         <div className="space-y-1">
           <h3 className="text-base font-bold text-primary flex items-center gap-2">
             <Building2 className="h-4 w-4 text-primary" />

@@ -34,29 +34,29 @@ export function PrivacyPolicyPage({
       </nav>
 
       {/* Header Banner */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">
-        <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 border border-emerald-200 px-3.5 py-1 text-xs font-bold text-emerald-800 tracking-wider uppercase">
-          <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 shrink-0" />
-          <span>ZERO DATA BROKERING &bull; SACROSANCT CUSTOMER PRIVACY SINCE 1989</span>
+      <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-0.5 text-[11px] font-bold text-emerald-800 tracking-wider uppercase">
+          <ShieldCheck className="h-3 w-3 text-emerald-600 shrink-0" />
+          <span>ZERO DATA BROKERING &bull; PRIVACY SINCE 1989</span>
         </div>
 
-        <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Privacy Policy
         </h1>
 
-        <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+        <div className="h-0.5 w-12 bg-red-600 mx-auto rounded-full" />
 
-        <p className="text-sm sm:text-base lg:text-lg text-foreground max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xs text-foreground max-w-3xl mx-auto leading-relaxed">
           At Survivaltabs, we regard the personal lives of our customers as sacrosanct, so when someone asks us a question or places an order &mdash; whether on the internet, by phone, fax, mail &mdash; it is treated as confidential correspondence.
         </p>
 
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto italic">
+        <p className="text-[11px] text-muted-foreground max-w-2xl mx-auto italic">
           Information on web visitors who come to our site is treated in the same way.
         </p>
       </section>
 
       {/* Trust Metrics Strip */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 gap-3">
         <div className="rounded-2xl bg-secondary border border-border p-4 sm:p-6 text-center space-y-1">
           <span className="text-2xl sm:text-3xl font-black text-primary">1989</span>
           <p className="text-xs font-bold uppercase tracking-wider text-secondary-foreground">Established</p>
@@ -90,7 +90,7 @@ export function PrivacyPolicyPage({
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 gap-4">
           {/* Procedure 1: Cookie Policy */}
           <div className="flex flex-col justify-between rounded-2xl bg-card border border-border p-6 sm:p-8 space-y-4 shadow-xs hover:shadow-md transition-shadow">
             <div className="space-y-4">
@@ -195,34 +195,34 @@ export function PrivacyPolicyPage({
       </section>
 
       {/* Flawless Track Record Highlight Box */}
-      <section className="rounded-2xl sm:rounded-3xl bg-primary text-primary-foreground p-6 sm:p-10 lg:p-12 shadow-xl border border-border relative overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center space-y-5">
-          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 border border-emerald-500/40 px-3.5 py-1 text-xs font-bold text-emerald-400 uppercase tracking-wider">
-            <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+      <section className="rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 shadow-xl border border-border relative overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 px-3 py-0.5 text-[11px] font-bold text-emerald-400 uppercase tracking-wider">
+            <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" />
             <span>FLAWLESS SECURITY RECORD</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-primary-foreground leading-snug">
+          <h2 className="text-lg sm:text-xl font-black uppercase tracking-tight text-primary-foreground leading-snug">
             In our entire history there has never been a report of a misappropriated credit card number.
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-primary-foreground/80 leading-relaxed">
+          <p className="text-xs text-primary-foreground/80 leading-relaxed">
             We pride ourselves in keeping any and all information regarding our web visitors and our customers confidential. And we are proud of the high standard of privacy we maintain on our customers&apos; behalf.
           </p>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2">
             <button
               onClick={onNavigateHome}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-background hover:bg-secondary text-primary px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-background hover:bg-secondary text-primary px-5 py-2.5 text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
             >
-              <ArrowLeft className="h-4 w-4" />
+              <ArrowLeft className="h-3.5 w-3.5" />
               <span>Return to Home</span>
             </button>
             <button
               onClick={onNavigateContact}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-medium transition-colors cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-border px-5 py-2.5 text-xs font-medium transition-colors cursor-pointer"
             >
-              <Mail className="h-4 w-4 text-emerald-600" />
+              <Mail className="h-3.5 w-3.5 text-emerald-600" />
               <span>Have a Privacy Question? Contact Us</span>
             </button>
           </div>
@@ -230,7 +230,7 @@ export function PrivacyPolicyPage({
       </section>
 
       {/* Official Contact for Privacy Inquiries */}
-      <section className="rounded-2xl bg-secondary border border-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="rounded-2xl bg-secondary border border-border p-5 flex flex-col gap-4">
         <div className="space-y-1">
           <h3 className="text-base font-bold text-primary flex items-center gap-2">
             <FileText className="h-4 w-4 text-primary" />

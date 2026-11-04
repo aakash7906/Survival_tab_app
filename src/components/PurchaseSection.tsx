@@ -136,8 +136,8 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
           <div className="h-0.5 w-12 bg-red-600 mx-auto" />
         </div>
 
-        {/* 5 Authentic Product Columns with Official Bottle Images */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+        {/* 5 Authentic Product Columns with Official Bottle Images (Mobile 2-Column Grid) */}
+        <div className="grid grid-cols-2 gap-3">
           {products.map((p) => {
             const isAdded = addedId === p.id
 

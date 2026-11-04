@@ -31,31 +31,31 @@ export function TermsPage({ onNavigateHome, onNavigateContact }: TermsPageProps)
       </nav>
 
       {/* Header Banner */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-4 sm:space-y-5">
-        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 tracking-wider uppercase">
-          <ShieldCheck className="h-3.5 w-3.5 text-red-600 shrink-0" />
+      <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-red-50 border border-red-200 px-3 py-0.5 text-[11px] font-bold text-red-700 tracking-wider uppercase">
+          <ShieldCheck className="h-3 w-3 text-red-600 shrink-0" />
           <span>OFFICIAL COMPLIANCE &bull; SECURITY STATEMENT</span>
         </div>
 
-        <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Terms and Conditions
         </h1>
 
-        <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+        <div className="h-0.5 w-12 bg-red-600 mx-auto rounded-full" />
 
-        <div className="space-y-3 max-w-3xl mx-auto">
-          <h2 className="text-base sm:text-lg font-bold uppercase tracking-wider text-primary">
+        <div className="space-y-1.5 max-w-3xl mx-auto">
+          <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-primary">
             SECURITY STATEMENT
           </h2>
-          <p className="text-sm sm:text-base text-foreground leading-relaxed">
+          <p className="text-xs text-muted-foreground leading-relaxed">
             This site is owned and operated by Food Reserve, inc. We value and respect the privacy and security concerns of all our clients and agents. The following statement discloses the Security Policy for the website.
           </p>
         </div>
       </section>
 
       {/* Security Pillars Grid */}
-      <section className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      <section className="space-y-4">
+        <div className="grid grid-cols-1 gap-4">
           {/* Pillar 1: Locked-Down Data Center & Firewalls */}
           <div className="flex flex-col justify-between rounded-2xl bg-card border border-border p-6 sm:p-8 space-y-4 shadow-xs hover:shadow-md transition-shadow">
             <div className="space-y-4">
@@ -163,18 +163,18 @@ export function TermsPage({ onNavigateHome, onNavigateContact }: TermsPageProps)
       </section>
 
       {/* Questions Regarding Food Reserve, inc. */}
-      <section className="rounded-2xl sm:rounded-3xl bg-primary text-primary-foreground p-6 sm:p-10 lg:p-12 shadow-xl border border-border space-y-6">
-        <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 border border-red-500/40 px-3.5 py-1 text-xs font-bold text-red-400 uppercase tracking-wider">
-            <Building2 className="h-3.5 w-3.5 text-red-400" />
+      <section className="rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 shadow-xl border border-border space-y-4">
+        <div className="max-w-3xl space-y-2">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-red-500/20 border border-red-500/40 px-3 py-0.5 text-[11px] font-bold text-red-400 uppercase tracking-wider">
+            <Building2 className="h-3 w-3 text-red-400" />
             <span>DIRECT INQUIRIES</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary-foreground">
+          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary-foreground">
             Questions Regarding Food Reserve, inc..
           </h2>
 
-          <p className="text-xs sm:text-sm md:text-base text-primary-foreground/80 leading-relaxed">
+          <p className="text-xs text-primary-foreground/80 leading-relaxed">
             If you have any questions regarding the Food Reserve, inc. Security Statement, please contact us at{" "}
             <a
               href="mailto:info@Survivaltabs.com"

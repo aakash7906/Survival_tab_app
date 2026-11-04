@@ -34,35 +34,35 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
       </nav>
 
       {/* Hero / Header Section */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-5">
-        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3.5 py-1 text-xs font-bold text-red-700 tracking-wider uppercase">
-          <Rocket className="h-3.5 w-3.5 text-red-600 shrink-0" />
-          <span>MIL-SPEC NUTRITION &bull; SINCE THE 1960s SPACE PROGRAM</span>
+      <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-4">
+        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3 py-0.5 text-[11px] font-bold text-red-700 tracking-wider uppercase">
+          <Rocket className="h-3 w-3 text-red-600 shrink-0" />
+          <span>MIL-SPEC NUTRITION &bull; SINCE 1960s SPACE PROGRAM</span>
         </div>
 
-        <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
+        <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
           About Survival Tabs
         </h1>
 
-        <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+        <div className="h-0.5 w-16 bg-red-600 mx-auto rounded-full" />
 
-        <p className="text-sm sm:text-base lg:text-lg text-foreground max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-foreground max-w-3xl mx-auto leading-relaxed">
           When Survival Food Tabs were formulated, a host of factors were considered in order to adapt them to their purpose as a lightweight, emergency, life-sustaining food ration.
         </p>
       </section>
 
       {/* 3 Core Scientific Factors Section */}
-      <section className="space-y-6">
-        <div className="text-center sm:text-left space-y-1">
-          <span className="text-xs font-bold uppercase tracking-wider text-primary">
+      <section className="space-y-4">
+        <div className="text-left space-y-0.5">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">
             Formulation Principles
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-primary">
+          <h2 className="text-lg sm:text-xl font-black text-primary">
             Why Survival Tabs Work When Everything Else Fails
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 gap-4">
           {/* Factor 1 */}
           <div className="flex flex-col justify-between rounded-2xl bg-secondary border border-border p-6 sm:p-8 space-y-4 hover:shadow-md transition-shadow">
             <div className="space-y-3">
@@ -135,40 +135,40 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
       </section>
 
       {/* Space Program Heritage & Government Research */}
-      <section className="rounded-2xl sm:rounded-3xl bg-primary text-primary-foreground overflow-hidden shadow-xl border border-border">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10 lg:p-14">
-          <div className="lg:col-span-7 space-y-4 sm:space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full bg-red-500/20 border border-red-500/40 px-3.5 py-1 text-xs font-bold text-red-400 uppercase tracking-wider">
-              <Rocket className="h-3.5 w-3.5 text-red-400" />
+      <section className="rounded-2xl bg-primary text-primary-foreground overflow-hidden shadow-xl border border-border">
+        <div className="flex flex-col gap-5 p-5 sm:p-6">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-1.5 rounded-full bg-red-500/20 border border-red-500/40 px-3 py-0.5 text-[11px] font-bold text-red-400 uppercase tracking-wider">
+              <Rocket className="h-3 w-3 text-red-400" />
               <span>Historic Aerospace Origins</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-primary-foreground leading-tight">
+            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary-foreground leading-tight">
               Evolved From the Early Space Program
             </h2>
 
-            <h3 className="text-base sm:text-lg lg:text-xl font-bold text-amber-400">
+            <h3 className="text-xs sm:text-sm font-bold text-amber-400">
               The Best Possible Nutrition in the Smallest Possible Volume
             </h3>
 
-            <p className="text-xs sm:text-sm md:text-base text-primary-foreground/80 leading-relaxed">
+            <p className="text-xs text-primary-foreground/80 leading-relaxed">
               Survival Tabs have a long history. Back in the 1960&apos;s the Federal Government was searching for a food source that could be used in specialty situations. The objective was to find a product that would provide the best possible nutrition in the smallest possible volume.
             </p>
 
-            <p className="text-xs sm:text-sm md:text-base text-primary-foreground/80 leading-relaxed">
+            <p className="text-xs text-primary-foreground/80 leading-relaxed">
               The resulting research was extremely involved and intense, and the product that evolved was used in the early space program. Eventually, a tablet was perfected and used widely as an emergency food. It came to be known as <strong className="text-primary-foreground">&quot;Survival Tabs&quot;</strong>.
             </p>
           </div>
 
-          <div className="lg:col-span-5 relative">
-            <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl aspect-[4/3]">
+          <div className="relative">
+            <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl aspect-[16/9]">
               <img
                 src="/banners/apollo-mission.jpeg"
                 alt="Early Space Program NASA Apollo Research"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                <span className="text-[11px] font-semibold text-primary-foreground/80">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3">
+                <span className="text-[10px] font-semibold text-primary-foreground/80">
                   Developed for zero-gravity and extreme mission weight limitations
                 </span>
               </div>
@@ -178,22 +178,22 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
       </section>
 
       {/* 12 Tabs Per Day & Nutrition Facts */}
-      <section className="space-y-8">
-        <div className="rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-12 shadow-xs space-y-8">
-          <div className="max-w-3xl space-y-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-primary">
+      <section className="space-y-4">
+        <div className="rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs space-y-4">
+          <div className="space-y-2 text-left">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">
               Daily Consumption Protocol
             </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-primary uppercase">
+            <h2 className="text-xl sm:text-2xl font-black text-primary uppercase">
               12 Tabs Per Day Is All You&apos;ll Need
             </h2>
-            <p className="text-sm sm:text-base text-foreground leading-relaxed">
+            <p className="text-xs text-muted-foreground leading-relaxed">
               Survival Tabs will keep you alive and moving for months at a time, on the amount you can carry in your backpack. Our recommended consumption of 12 tabs per day may be decreased when other foods are available in adequate amounts and quality. Or it may be increased in times of complete starvation or extreme physical exertion.
             </p>
           </div>
 
           {/* Stat Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 pt-2">
+          <div className="grid grid-cols-2 gap-3 pt-1">
             <div className="rounded-xl bg-secondary border border-border p-4 sm:p-5 text-center space-y-1.5">
               <span className="text-2xl sm:text-3xl font-black text-primary">100%</span>
               <p className="text-xs font-bold text-primary uppercase">U.S. RDA</p>
@@ -245,7 +245,7 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-4">
           <div className="rounded-2xl bg-card border border-border p-6 sm:p-7 space-y-3 shadow-xs">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-700">
               <Layers className="h-5 w-5" />
@@ -309,21 +309,21 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
       </section>
 
       {/* Field Proven Real World Trust (Alaska SAR & Mt. Everest) */}
-      <section className="rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-12 shadow-xs space-y-8">
-        <div className="text-center space-y-2 max-w-2xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-primary">
+      <section className="rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs space-y-5">
+        <div className="text-center space-y-1.5 max-w-2xl mx-auto">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground block">
             Real-World Credentials
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-primary uppercase">
+          <h2 className="text-xl sm:text-2xl font-black text-primary uppercase">
             Others Who Use Survival Tabs
           </h2>
-          <div className="h-0.5 w-16 bg-primary mx-auto" />
+          <div className="h-0.5 w-12 bg-red-600 mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 gap-4">
           {/* Alaskan SAR */}
           <div className="rounded-2xl border border-border bg-secondary overflow-hidden flex flex-col justify-between shadow-xs">
-            <div className="h-48 sm:h-56 relative overflow-hidden">
+            <div className="h-44 relative overflow-hidden">
               <img
                 src="/banners/alaskan-large.jpg"
                 alt="Alaskan Helicopter Search and Rescue Squad"
@@ -333,12 +333,12 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
                 Standard Issue
               </div>
             </div>
-            <div className="p-6 space-y-2">
-              <h3 className="text-base sm:text-lg font-bold text-primary flex items-center gap-2">
-                <Award className="h-5 w-5 text-primary shrink-0" />
+            <div className="p-4 space-y-1.5">
+              <h3 className="text-sm font-bold text-primary flex items-center gap-2">
+                <Award className="h-4 w-4 text-primary shrink-0" />
                 <span>Alaskan Helicopter Search &amp; Rescue Squad</span>
               </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 Survival Tabs are standard-issue and carried on all aircraft of the Alaskan Helicopter Search and Rescue Squad for the past 8 years! Proven in sub-zero survival environments.
               </p>
             </div>
@@ -346,7 +346,7 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
 
           {/* Mount Everest */}
           <div className="rounded-2xl border border-border bg-secondary overflow-hidden flex flex-col justify-between shadow-xs">
-            <div className="h-48 sm:h-56 relative overflow-hidden">
+            <div className="h-44 relative overflow-hidden">
               <img
                 src="/banners/everest-base-camp-mountains-landscape.jpeg"
                 alt="Mount Everest Ascents"
@@ -356,12 +356,12 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
                 High Altitude Summit
               </div>
             </div>
-            <div className="p-6 space-y-2">
-              <h3 className="text-base sm:text-lg font-bold text-primary flex items-center gap-2">
-                <Mountain className="h-5 w-5 text-emerald-600 shrink-0" />
+            <div className="p-4 space-y-1.5">
+              <h3 className="text-sm font-bold text-primary flex items-center gap-2">
+                <Mountain className="h-4 w-4 text-emerald-600 shrink-0" />
                 <span>Successful Ascents of Mt. Everest</span>
               </h3>
-              <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 The Survival Tabs have been on several successful ascents of Mt. Everest! Trusted by mountaineers in the &quot;Death Zone&quot; where conventional food cannot be digested.
               </p>
             </div>
@@ -370,22 +370,22 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
       </section>
 
       {/* The Bottom Line Section (Accented as shown in Image 2) */}
-      <section className="rounded-2xl sm:rounded-3xl bg-primary text-primary-foreground p-6 sm:p-10 lg:p-14 shadow-xl relative overflow-hidden">
-        <div className="max-w-3xl mx-auto text-center space-y-4 sm:space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/20 border border-primary-foreground/30 px-4 py-1 text-xs font-black tracking-widest uppercase text-primary-foreground">
-            <Flame className="h-4 w-4 text-amber-300" />
+      <section className="rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 shadow-xl relative overflow-hidden">
+        <div className="max-w-3xl mx-auto text-center space-y-3">
+          <div className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/20 border border-primary-foreground/30 px-3.5 py-0.5 text-[10px] font-black tracking-widest uppercase text-primary-foreground">
+            <Flame className="h-3.5 w-3.5 text-amber-300" />
             <span>THE ULTIMATE RATION</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary-foreground">
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary-foreground">
             BOTTOM LINE
           </h2>
 
-          <p className="text-sm sm:text-base lg:text-lg text-primary-foreground/90 leading-relaxed">
+          <p className="text-xs sm:text-sm text-primary-foreground/90 leading-relaxed">
             Survival Tabs are a convenient, compact, lightweight, lifesaving food ration for any emergency. They are completely nutritious, have a 25+ year shelf life and are absolutely delicious.
           </p>
 
-          <p className="text-sm sm:text-base lg:text-lg font-semibold text-primary-foreground italic">
+          <p className="text-xs sm:text-sm font-semibold text-primary-foreground italic">
             &ldquo;Just let them melt in your mouth... you&apos;ll probably chew them up... they are so irresistibly good-tasting!&rdquo;
           </p>
 

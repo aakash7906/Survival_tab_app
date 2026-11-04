@@ -54,17 +54,17 @@ export function ContactUsPage({ onNavigateHome, onNavigateFaq }: ContactUsPagePr
       </nav>
 
       {/* Header Banner */}
-      <div className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-3 sm:space-y-4">
-        <div className="inline-flex items-center gap-2 rounded-full bg-red-50 border border-red-200 px-3 sm:px-3.5 py-1 text-[11px] sm:text-xs font-bold text-red-700 tracking-wider uppercase">
-          <MessageSquare className="h-3.5 w-3.5 text-red-600 shrink-0" />
+      <div className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">
+        <div className="inline-flex items-center gap-1.5 rounded-full bg-red-50 border border-red-200 px-3 py-0.5 text-[11px] font-bold text-red-700 tracking-wider uppercase">
+          <MessageSquare className="h-3 w-3 text-red-600 shrink-0" />
           <span>DIRECT CUSTOMER &bull; WHOLESALE SUPPORT</span>
         </div>
 
-        <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Contact The Survival Tabs
         </h1>
 
-        <p className="text-xs sm:text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xs text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           Have questions about personal emergency readiness, ration orders, shelf life verification,
           or bulk distributor pricing? Our US-based team is ready to assist you.
         </p>
@@ -86,11 +86,11 @@ export function ContactUsPage({ onNavigateHome, onNavigateFaq }: ContactUsPagePr
         </div>
       </div>
 
-      {/* Main 2-Column Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      {/* Main Content Stack */}
+      <div className="flex flex-col gap-6">
         
-        {/* Left Column: Direct Contact Info & Channels */}
-        <div className="lg:col-span-5 space-y-6">
+        {/* Direct Contact Info & Channels */}
+        <div className="space-y-4">
           
           {/* Contact Methods Card */}
           <div className="rounded-2xl sm:rounded-3xl bg-card border border-border p-5 sm:p-8 shadow-xs space-y-6">
@@ -200,9 +200,9 @@ export function ContactUsPage({ onNavigateHome, onNavigateFaq }: ContactUsPagePr
 
         </div>
 
-        {/* Right Column: Contact Message Form */}
-        <div className="lg:col-span-7">
-          <div className="rounded-2xl sm:rounded-3xl bg-card border border-border p-5 sm:p-8 lg:p-10 shadow-xs space-y-6">
+        {/* Contact Message Form */}
+        <div>
+          <div className="rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs space-y-5">
             
             <div className="border-b border-border pb-4 space-y-1">
               <h2 className="text-xl font-bold text-primary uppercase tracking-tight">

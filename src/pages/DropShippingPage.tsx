@@ -136,9 +136,9 @@ export function DropShippingPage({
       </nav>
 
       {/* Main Header Card (Verbatim from User Screenshot) */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden space-y-6">
-        <div className="text-center space-y-3">
-          <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
+      <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden space-y-4">
+        <div className="text-center space-y-2">
+          <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
             WHY YOU WANT TO BE A DROP SHIPPER
           </h1>
 
@@ -223,7 +223,7 @@ export function DropShippingPage({
       </section>
 
       {/* 4 Value Propositions Grid */}
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="grid grid-cols-1 gap-4">
         <div className="rounded-2xl bg-card border border-border p-6 space-y-3 shadow-xs">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
             <DollarSign className="h-5 w-5" />
@@ -268,7 +268,7 @@ export function DropShippingPage({
       {/* Dropship Partner Application Form */}
       <section
         id="dropship-application"
-        className="rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs space-y-8"
+        className="rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs space-y-6"
       >
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-primary">
@@ -444,7 +444,7 @@ export function DropShippingPage({
       </section>
 
       {/* Direct Contact Bar */}
-      <section className="rounded-2xl bg-secondary border border-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="rounded-2xl bg-secondary border border-border p-5 flex flex-col gap-4">
         <div className="space-y-1">
           <h3 className="text-base font-bold text-primary flex items-center gap-2">
             <Building2 className="h-4 w-4 text-primary" />

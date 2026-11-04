@@ -201,20 +201,20 @@ export function ForeignExportPage({
       </nav>
 
       {/* Main Header Card (Verbatim from Image 1) */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden text-center space-y-8">
-        <div className="space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-4 py-1 text-xs font-bold text-blue-800 tracking-wider uppercase">
-            <span>GLOBAL COMMERCE INTERNATIONAL BULK SUPPLY</span>
+      <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-4">
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-3 py-0.5 text-[11px] font-bold text-blue-800 tracking-wider uppercase">
+            <span>GLOBAL COMMERCE BULK SUPPLY</span>
           </div>
 
-          <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
+          <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
             HOW DO SURVIVAL TABS WORK?
           </h1>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+          <div className="h-0.5 w-12 bg-red-600 mx-auto rounded-full" />
         </div>
 
         {/* 3 Core Functional Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
+        <div className="grid grid-cols-1 gap-4 text-left">
           {/* 1. The Main Purpose */}
           <div className="rounded-2xl bg-secondary border border-border p-6 sm:p-7 space-y-3">
             <div className="flex items-center justify-between">
@@ -316,7 +316,7 @@ export function ForeignExportPage({
       </section>
 
       {/* 15-Day Food Supply Product Comparison Matrix (Verbatim from Image 2 & 3) */}
-      <section className="rounded-2xl sm:rounded-3xl bg-card border border-border p-4 sm:p-8 lg:p-12 shadow-xs space-y-6">
+      <section className="rounded-2xl bg-card border border-border p-4 sm:p-5 shadow-xs space-y-5">
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-2">
             <span className="text-3xl sm:text-4xl font-black text-red-600">15 DAY</span>
@@ -552,7 +552,7 @@ export function ForeignExportPage({
       {/* Foreign Reseller Application Form */}
       <section
         id="export-application"
-        className="rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs space-y-8"
+        className="rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs space-y-6"
       >
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-primary">
@@ -744,7 +744,7 @@ export function ForeignExportPage({
       </section>
 
       {/* Direct Contact Bar */}
-      <section className="rounded-2xl bg-secondary border border-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="rounded-2xl bg-secondary border border-border p-5 flex flex-col gap-4">
         <div className="space-y-1">
           <h3 className="text-base font-bold text-primary flex items-center gap-2">
             <Globe className="h-4 w-4 text-primary" />

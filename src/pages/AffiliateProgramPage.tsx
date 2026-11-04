@@ -74,21 +74,21 @@ export function AffiliateProgramPage({
       </nav>
 
       {/* Main Header Card (Verbatim from User Screenshot) */}
-      <section className="relative rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs overflow-hidden space-y-8">
-        <div className="text-center space-y-4 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 border border-blue-200 px-4 py-1 text-xs font-bold text-blue-800 tracking-wider uppercase">
-            <Share2 className="h-3.5 w-3.5 text-blue-600 shrink-0" />
+      <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden space-y-4">
+        <div className="text-center space-y-2 max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 border border-blue-200 px-3 py-0.5 text-[11px] font-bold text-blue-800 tracking-wider uppercase">
+            <Share2 className="h-3 w-3 text-blue-600 shrink-0" />
             <span>PARTNER NETWORK EARN COMMISSIONS</span>
           </div>
 
-          <h1 className="text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-primary leading-tight">
+          <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary leading-tight">
             JOIN SURVIVAL TABS AFFILIATE PROGRAM
           </h1>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full" />
+          <div className="h-0.5 w-12 bg-red-600 mx-auto rounded-full" />
         </div>
 
-        {/* Overview & Audience Two-Column Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
+        {/* Overview & Audience Layout */}
+        <div className="grid grid-cols-1 gap-4 max-w-4xl mx-auto">
           {/* Our Affiliate Program in a Nutshell */}
           <div className="rounded-2xl bg-secondary border border-border p-6 sm:p-7 space-y-2.5">
             <h2 className="text-base sm:text-lg font-black text-primary uppercase">
@@ -121,7 +121,7 @@ export function AffiliateProgramPage({
         </div>
 
         {/* 4 Steps Process Cards (Verbatim from User Screenshot) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
           {/* Step 1: Sign Up */}
           <div className="flex flex-col justify-between rounded-2xl bg-card border border-border p-6 space-y-4 shadow-xs hover:shadow-md transition-shadow">
             <div className="space-y-3">
@@ -196,11 +196,11 @@ export function AffiliateProgramPage({
         </div>
 
         {/* CTA Banner (Verbatim from bottom of image) */}
-        <div className="rounded-2xl bg-primary text-primary-foreground p-6 sm:p-10 text-center space-y-4">
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black uppercase tracking-tight text-primary-foreground">
+        <div className="rounded-2xl bg-primary text-primary-foreground p-5 sm:p-6 text-center space-y-3">
+          <h2 className="text-lg sm:text-xl font-black uppercase tracking-tight text-primary-foreground">
             JOIN SURVIVAL TABS AFFILIATE PROGRAM
           </h2>
-          <p className="text-xs sm:text-sm md:text-base text-primary-foreground/80 max-w-xl mx-auto">
+          <p className="text-xs text-primary-foreground/80 max-w-xl mx-auto">
             Earn generous commissions on Every Retail Purchase made by Customers you refer to SurvivalTabs.com!
           </p>
 
@@ -229,7 +229,7 @@ export function AffiliateProgramPage({
       {/* Affiliate Registration Form */}
       <section
         id="affiliate-registration"
-        className="rounded-2xl sm:rounded-3xl bg-card border border-border p-6 sm:p-10 lg:p-14 shadow-xs space-y-8"
+        className="rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs space-y-6"
       >
         <div className="text-center space-y-2 max-w-2xl mx-auto">
           <span className="text-xs font-bold uppercase tracking-wider text-primary">
@@ -407,7 +407,7 @@ export function AffiliateProgramPage({
       </section>
 
       {/* Direct Contact Bar */}
-      <section className="rounded-2xl bg-secondary border border-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <section className="rounded-2xl bg-secondary border border-border p-5 flex flex-col gap-4">
         <div className="space-y-1">
           <h3 className="text-base font-bold text-primary flex items-center gap-2">
             <Building2 className="h-4 w-4 text-primary" />

@@ -37,24 +37,24 @@ export function NutritionFactsSection() {
 
       <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8 font-sans">
         {/* Main Headline */}
-        <div className="text-center space-y-2 sm:space-y-3">
-          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-primary leading-tight">
+        <div className="text-center space-y-2">
+          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary leading-tight">
             DELICIOUS! NUTRITIOUS! EASY TO STORE!
           </h2>
-          <p className="text-xs sm:text-[13px] text-muted-foreground leading-relaxed max-w-4xl mx-auto pt-1 font-normal">
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-2xl mx-auto pt-1 font-normal">
             <strong>Ingredients:</strong> Non-fat Dry Milk Solids, Sucrose, Vegetable Oils (Including Sunflower and/or Safflower Oil), Calcium Phosphate, Ascorbic Acid, Vitamin E Acetate, Niacinamide, Ferrous Fumarate, Zinc Gluconate, Natural and Artificial Flavors, Calcium Pantothenate, Potassium Pyridoxine Hydrochloride, Riboflavin, Thiamin Hudrochloride, Vitamin A Palmitate, Vitamin D3, Folic Acid, Potassium Iodide, Cyanocobalamin.
           </p>
         </div>
 
         {/* Nutrition Facts Heading */}
-        <div className="text-center pt-1 sm:pt-2">
-          <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-primary tracking-tight">
+        <div className="text-center pt-1">
+          <h3 className="text-lg sm:text-xl font-black text-primary tracking-tight">
             Nutrition Facts
           </h3>
         </div>
 
-        {/* Official 2-Column Nutrition Facts Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-14 text-sm text-foreground border-t border-b border-border py-5 sm:py-6">
+        {/* Official Nutrition Facts Layout */}
+        <div className="grid grid-cols-1 gap-6 text-sm text-foreground border-t border-b border-border py-4">
           
           {/* Left Column: Macronutrients and Daily Values */}
           <div className="space-y-1.5 divide-y divide-border">
