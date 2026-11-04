@@ -31,34 +31,40 @@ export function Navbar({
     { label: "Contact Us", href: "contact" },
   ]
 
+  const scrollContainerToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+    const container = document.getElementById("mobile-viewport-container")
+    if (container) container.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   const scrollTo = (href: string) => {
     setMobileOpen(false)
 
     if (href === "about") {
       onNavigate?.("about")
       window.history.pushState(null, "", "/about")
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      scrollContainerToTop()
       return
     }
 
     if (href === "faq") {
       onNavigate?.("faq")
       window.history.pushState(null, "", "/faq")
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      scrollContainerToTop()
       return
     }
 
     if (href === "testimonials") {
       onNavigate?.("testimonials")
       window.history.pushState(null, "", "/testimonials")
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      scrollContainerToTop()
       return
     }
 
     if (href === "contact") {
       onNavigate?.("contact")
       window.history.pushState(null, "", "/contact")
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      scrollContainerToTop()
       return
     }
 
@@ -68,7 +74,7 @@ export function Navbar({
 
     if (href === "hero" || href === "/") {
       window.history.pushState(null, "", "/")
-      window.scrollTo({ top: 0, behavior: "smooth" })
+      scrollContainerToTop()
       return
     }
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Iphone } from "@/registry/magicui/iphone"
 import { Navbar } from "./components/Navbar"
 import { HomePage } from "./pages/HomePage"
 import { FaqPage } from "./pages/FaqPage"
@@ -187,16 +188,41 @@ export default function App() {
     setCart([])
   }
 
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth >= 1024
+    }
+    return false
+  })
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)")
+    setIsDesktop(mediaQuery.matches)
+
+    const handler = (e: MediaQueryListEvent) => {
+      setIsDesktop(e.matches)
+    }
+
+    mediaQuery.addEventListener("change", handler)
+    return () => mediaQuery.removeEventListener("change", handler)
+  }, [])
+
+  const scrollContainerToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+    const container = document.getElementById("mobile-viewport-container")
+    if (container) container.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
   const handleNavigateHome = () => {
     setCurrentPage("home")
     window.history.pushState(null, "", "/")
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    scrollContainerToTop()
   }
 
   const handleNavigateFaq = () => {
     setCurrentPage("faq")
     window.history.pushState(null, "", "/#faq")
-    window.scrollTo({ top: 0, behavior: "smooth" })
+    scrollContainerToTop()
   }
 
   const handleOrderNow = () => {
@@ -210,7 +236,7 @@ export default function App() {
 
   const totalCartCount = cart.reduce((acc, item) => acc + item.quantity, 0)
 
-  return (
+  const appContent = (
     <div className="min-h-screen bg-background text-primary font-sans flex flex-col justify-between selection:bg-red-100 selection:text-red-900">
       {/* Official Header / Navbar */}
       <Navbar
@@ -360,6 +386,45 @@ export default function App() {
         onRemove={handleRemoveFromCart}
         onClear={handleClearCart}
       />
+    </div>
+  )
+
+  if (!isDesktop) {
+    return appContent
+  }
+
+  return (
+    <div className="relative min-h-screen w-full h-screen overflow-hidden bg-[#070913] bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,rgba(16,36,75,0.28),rgba(6,8,20,1))] flex items-center justify-center p-4">
+      
+      {/* Left Info Panel (Floating on left side, identical to Precision Fuel layout) */}
+      <div className="hidden lg:flex flex-col justify-center space-y-3 max-w-[280px] xl:max-w-xs select-none text-left absolute left-8 lg:left-14 xl:left-24 top-1/2 -translate-y-1/2 z-20">
+        <div className="flex items-center gap-2.5">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
+          </span>
+          <h1 className="text-xl xl:text-2xl font-bold tracking-tight text-white font-sans">
+            Survival Tabs
+          </h1>
+        </div>
+
+        <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-sans">
+          Welcome to the mobile experience portal. This application is optimized for mobile viewports to provide a focused, native-like interface.
+        </p>
+
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-medium text-zinc-300 backdrop-blur-sm w-fit mt-1">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>Live Mobile Viewport</span>
+        </div>
+      </div>
+
+      {/* Center: Mobile Frame shifted to the EXACT DEAD CENTER of the display */}
+      <div className="relative z-10 w-[380px] sm:w-[395px] lg:w-[410px] xl:w-[420px] max-w-[92vw] max-h-[92vh] aspect-[433/882] shrink-0 flex items-center justify-center filter drop-shadow-[0_25px_60px_rgba(0,0,0,0.85)]">
+        <Iphone className="size-full">
+          {appContent}
+        </Iphone>
+      </div>
+
     </div>
   )
 }
