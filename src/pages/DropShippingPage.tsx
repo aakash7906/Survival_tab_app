@@ -15,7 +15,6 @@ import {
 
 interface DropShippingPageProps {
   onNavigateHome?: () => void
-  onNavigateMakeMoney?: () => void
   onNavigateContact?: () => void
 }
 
@@ -70,7 +69,6 @@ const dropShipReasons: ReasonItem[] = [
 ]
 
 export function DropShippingPage({
-  onNavigateMakeMoney,
   onNavigateContact,
 }: DropShippingPageProps) {
   const [openReasons, setOpenReasons] = useState<Record<string, boolean>>({
@@ -104,13 +102,6 @@ export function DropShippingPage({
       setIsSubmitting(false)
       setIsSubmitted(true)
     }, 600)
-  }
-
-  const scrollToApply = () => {
-    const el = document.getElementById("dropship-application")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
-    }
   }
 
   return (
@@ -180,25 +171,6 @@ export function DropShippingPage({
               </div>
             )
           })}
-        </div>
-
-        {/* Action Controls */}
-        <div className="text-center pt-6 space-y-4">
-          <button
-            onClick={scrollToApply}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-3.5 text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
-          >
-            <span>APPLY NOW!</span>
-          </button>
-
-          <div>
-            <button
-              onClick={onNavigateMakeMoney}
-              className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-600 hover:text-blue-800 underline transition-colors cursor-pointer"
-            >
-              MORE WAYS TO MAKE MONEY!
-            </button>
-          </div>
         </div>
       </section>
 
@@ -408,14 +380,14 @@ export function DropShippingPage({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
+              className="relative w-full flex items-center justify-center rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 px-10 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
             >
               {isSubmitting ? (
                 <span>Submitting Registration...</span>
               ) : (
                 <>
-                  <Send className="h-4 w-4" />
-                  <span>Submit Dropship Application</span>
+                  <Send className="absolute left-4 h-4 w-4 shrink-0" />
+                  <span className="text-center">Submit Dropship Application</span>
                 </>
               )}
             </button>

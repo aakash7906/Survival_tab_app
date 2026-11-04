@@ -43,8 +43,8 @@ export function MobileBottomNav({
   ]
 
   return (
-    <nav className="sticky bottom-0 inset-x-0 z-40 w-full shrink-0 bg-background/95 backdrop-blur-2xl border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.06)] pb-[env(safe-area-inset-bottom,0.5rem)] mt-auto">
-      <div className="max-w-md sm:max-w-xl mx-auto px-2 h-16 flex items-center justify-around">
+    <nav className="sticky bottom-0 inset-x-0 z-40 w-full shrink-0 bg-background/95 backdrop-blur-2xl border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.06)] pb-[env(safe-area-inset-bottom,0.75rem)] mt-auto">
+      <div className="max-w-md sm:max-w-xl mx-auto px-2 h-14 min-[360px]:h-16 flex items-center justify-around">
         {tabs.map((tab) => {
           const Icon = tab.icon
           const isActive = currentTab === tab.id

@@ -72,7 +72,6 @@ export function PartnersPage({
         {activeTab === "wholesale" && (
           <WholesaleDistributorPage
             onNavigateHome={onNavigateHome}
-            onNavigateMakeMoney={() => setActiveTab("wholesale")}
             onNavigateContact={onNavigateContact}
           />
         )}
@@ -80,7 +79,6 @@ export function PartnersPage({
         {activeTab === "dropship" && (
           <DropShippingPage
             onNavigateHome={onNavigateHome}
-            onNavigateMakeMoney={() => setActiveTab("dropship")}
             onNavigateContact={onNavigateContact}
           />
         )}
@@ -88,7 +86,6 @@ export function PartnersPage({
         {activeTab === "export" && (
           <ForeignExportPage
             onNavigateHome={onNavigateHome}
-            onNavigateMakeMoney={() => setActiveTab("export")}
             onNavigateContact={onNavigateContact}
           />
         )}
@@ -96,7 +93,6 @@ export function PartnersPage({
         {activeTab === "affiliate" && (
           <AffiliateProgramPage
             onNavigateHome={onNavigateHome}
-            onNavigateMakeMoney={() => setActiveTab("affiliate")}
             onNavigateContact={onNavigateContact}
           />
         )}

@@ -14,12 +14,10 @@ import {
 
 interface WholesaleDistributorPageProps {
   onNavigateHome?: () => void
-  onNavigateMakeMoney?: () => void
   onNavigateContact?: () => void
 }
 
 export function WholesaleDistributorPage({
-  onNavigateMakeMoney,
   onNavigateContact,
 }: WholesaleDistributorPageProps) {
   const [formData, setFormData] = useState({
@@ -43,13 +41,6 @@ export function WholesaleDistributorPage({
       setIsSubmitting(false)
       setIsSubmitted(true)
     }, 600)
-  }
-
-  const scrollToApply = () => {
-    const el = document.getElementById("apply-form")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
-    }
   }
 
   return (
@@ -82,27 +73,8 @@ export function WholesaleDistributorPage({
 
         {/* Verbatim Narrative Paragraph */}
         <p className="text-xs text-foreground max-w-3xl mx-auto leading-relaxed text-left">
-          Distribution is a key part of any product based business, right up there with production, sales, and shopper marketing. Just because you&apos;re a small company doesn&apos;t mean you can ignore the need for efficient and cost-effective distribution. It&apos;s common for companies to outsource this and operations like retail marketing for many reasons. If your company has some of these reasons in common it may be time to start considering working with a distributor. If you want to be a Wholesale Distributor for Survival Tabs, then click below.
+          Distribution is a key part of any product based business, right up there with production, sales, and shopper marketing. Just because you&apos;re a small company doesn&apos;t mean you can ignore the need for efficient and cost-effective distribution. It&apos;s common for companies to outsource this and operations like retail marketing for many reasons. If your company has some of these reasons in common it may be time to start considering working with a distributor.
         </p>
-
-        {/* Action Controls */}
-        <div className="pt-2 space-y-4">
-          <button
-            onClick={scrollToApply}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-3.5 text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
-          >
-            <span>APPLY NOW!</span>
-          </button>
-
-          <div>
-            <button
-              onClick={onNavigateMakeMoney}
-              className="text-xs sm:text-sm font-bold uppercase tracking-wider text-blue-600 hover:text-blue-800 underline transition-colors cursor-pointer"
-            >
-              MORE WAYS TO MAKE MONEY!
-            </button>
-          </div>
-        </div>
       </section>
 
       {/* Deep-Dive 4 Benefits Cards */}
@@ -374,14 +346,14 @@ export function WholesaleDistributorPage({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
+              className="relative w-full flex items-center justify-center rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 px-10 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
             >
               {isSubmitting ? (
                 <span>Submitting Wholesale Application...</span>
               ) : (
                 <>
-                  <Send className="h-4 w-4" />
-                  <span>Submit Wholesale Distributor Application</span>
+                  <Send className="absolute left-4 h-4 w-4 shrink-0" />
+                  <span className="text-center">Submit Wholesale Distributor Application</span>
                 </>
               )}
             </button>

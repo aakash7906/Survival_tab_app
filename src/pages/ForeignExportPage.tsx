@@ -14,7 +14,6 @@ import {
 
 interface ForeignExportPageProps {
   onNavigateHome?: () => void
-  onNavigateMakeMoney?: () => void
   onNavigateContact?: () => void
 }
 
@@ -170,12 +169,6 @@ export function ForeignExportPage({
     }, 600)
   }
 
-  const scrollToApply = () => {
-    const el = document.getElementById("export-application")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
-    }
-  }
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4 space-y-6 pt-2 pb-12">
@@ -513,12 +506,6 @@ export function ForeignExportPage({
 
         {/* CTA Bar below comparison */}
         <div className="text-center pt-4 space-y-3">
-          <button
-            onClick={scrollToApply}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-3.5 text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
-          >
-            <span>Become a Reseller now!</span>
-          </button>
           <p className="text-xs text-muted-foreground">
             Fill out our Foreign Reseller Application to know find out about Survival Tabs and our Wholesale Pricing Options.
           </p>
@@ -707,14 +694,14 @@ export function ForeignExportPage({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
+              className="relative w-full flex items-center justify-center rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 px-10 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
             >
               {isSubmitting ? (
                 <span>Submitting Export Application...</span>
               ) : (
                 <>
-                  <Send className="h-4 w-4" />
-                  <span>Submit Foreign Reseller Application</span>
+                  <Send className="absolute left-4 h-4 w-4 shrink-0" />
+                  <span className="text-center">Submit Foreign Reseller Application</span>
                 </>
               )}
             </button>

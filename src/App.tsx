@@ -407,7 +407,7 @@ export default function App() {
   // Direct Mobile / Tablet Viewport (< 1024px)
   if (!isDesktop) {
     return (
-      <div className="h-screen h-dvh max-h-screen max-h-dvh w-full overflow-hidden flex flex-col">
+      <div className="h-full h-[100dvh] max-h-[100dvh] w-full overflow-hidden flex flex-col">
         {appContent}
       </div>
     )

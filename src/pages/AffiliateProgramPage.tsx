@@ -14,12 +14,10 @@ import {
 
 interface AffiliateProgramPageProps {
   onNavigateHome?: () => void
-  onNavigateMakeMoney?: () => void
   onNavigateContact?: () => void
 }
 
 export function AffiliateProgramPage({
-  onNavigateMakeMoney,
   onNavigateContact,
 }: AffiliateProgramPageProps) {
   const [formData, setFormData] = useState({
@@ -44,12 +42,6 @@ export function AffiliateProgramPage({
     }, 600)
   }
 
-  const scrollToApply = () => {
-    const el = document.getElementById("affiliate-registration")
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" })
-    }
-  }
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4 space-y-6 pt-2 pb-12">
@@ -183,26 +175,6 @@ export function AffiliateProgramPage({
           <p className="text-xs text-primary-foreground/80 max-w-xl mx-auto">
             Earn generous commissions on Every Retail Purchase made by Customers you refer to SurvivalTabs.com!
           </p>
-
-          <div className="pt-2 space-y-3">
-            <div>
-              <button
-                onClick={scrollToApply}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-black px-10 py-3.5 text-xs sm:text-sm uppercase tracking-wider shadow-md hover:shadow-lg transition-all hover:scale-105 active:scale-95 cursor-pointer"
-              >
-                <span>JOIN THE PROGRAM</span>
-              </button>
-            </div>
-
-            <div>
-              <button
-                onClick={onNavigateMakeMoney}
-                className="text-xs font-bold uppercase tracking-wider text-primary-foreground/80 hover:text-primary-foreground underline transition-colors cursor-pointer"
-              >
-                MORE WAYS TO MAKE MONEY!
-              </button>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -371,14 +343,14 @@ export function AffiliateProgramPage({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
+              className="relative w-full flex items-center justify-center rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3.5 px-10 text-xs uppercase tracking-wider shadow-sm hover:shadow transition-all cursor-pointer disabled:opacity-70"
             >
               {isSubmitting ? (
                 <span>Submitting Affiliate Registration...</span>
               ) : (
                 <>
-                  <Send className="h-4 w-4" />
-                  <span>Submit Affiliate Application</span>
+                  <Send className="absolute left-4 h-4 w-4 shrink-0" />
+                  <span className="text-center">Submit Affiliate Application</span>
                 </>
               )}
             </button>
