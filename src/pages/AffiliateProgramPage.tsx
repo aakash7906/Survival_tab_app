@@ -59,37 +59,89 @@ export function AffiliateProgramPage({
           <div className="h-0.5 w-12 bg-red-600 mx-auto rounded-full" />
         </div>
 
-        {/* Overview & Audience Layout */}
-        <div className="grid grid-cols-1 gap-4 max-w-4xl mx-auto">
-          {/* Our Affiliate Program in a Nutshell */}
-          <div className="rounded-2xl bg-secondary border border-border p-6 sm:p-7 space-y-2.5">
-            <h2 className="text-base sm:text-lg font-black text-primary uppercase">
-              Our Affiliate Program in a Nutshell
+        {/* Overview & Audience Layout - Crisp Bullet Points & Visual Mini-Steps */}
+        <div className="grid grid-cols-1 gap-3.5 max-w-4xl mx-auto">
+          {/* Program in a Nutshell */}
+          <div className="rounded-2xl bg-secondary border border-border p-5 space-y-2.5">
+            <h2 className="text-sm sm:text-base font-black text-primary uppercase">
+              Affiliate Program Overview
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Join thousands of marketers who are earning commissions as a member of one of the highest paying affiliate programs. Refer your friends, colleagues, clients, followers and fellow digital marketing experts to Survival Tabs and earn commissions from purchases your referrals make.
-            </p>
+            <ul className="text-xs text-muted-foreground space-y-1.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong className="text-foreground">High Commission:</strong> Earn recurring revenue on every referred Survival Tabs order.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong className="text-foreground">Real-Time Analytics:</strong> Track link clicks, customer conversions, and payouts.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong className="text-foreground">Monthly Payouts:</strong> Fast, guaranteed monthly transfers via PayPal.</span>
+              </li>
+            </ul>
           </div>
 
           {/* Who is The Affiliate Program For? */}
-          <div className="rounded-2xl bg-secondary border border-border p-6 sm:p-7 space-y-2.5">
-            <h2 className="text-base sm:text-lg font-black text-primary uppercase">
-              Who is The Affiliate Program For?
+          <div className="rounded-2xl bg-secondary border border-border p-5 space-y-2.5">
+            <h2 className="text-sm sm:text-base font-black text-primary uppercase">
+              Who Can Join?
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              We welcome bloggers, webmasters, paid search professionals, speakers, agency marketers, trainers, and all-around digital marketing gurus! By becoming a Survival Tabs affiliate, you&apos;re joining an affiliate program with high earnings potential. You will receive the necessary tools to extract maximum value from your affiliate marketing efforts through data, insight and control.
-            </p>
+            <div className="grid grid-cols-2 gap-2 pt-1 text-xs font-semibold text-foreground">
+              <span className="flex items-center gap-1.5 rounded-xl bg-card border border-border p-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span>Content Creators & Bloggers</span>
+              </span>
+              <span className="flex items-center gap-1.5 rounded-xl bg-card border border-border p-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span>Outdoor & Prepper Sites</span>
+              </span>
+              <span className="flex items-center gap-1.5 rounded-xl bg-card border border-border p-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span>Paid Media Marketers</span>
+              </span>
+              <span className="flex items-center gap-1.5 rounded-xl bg-card border border-border p-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span>Community Leaders</span>
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* How to Become a Survival Tabs Affiliate? Context Box */}
-        <div className="max-w-4xl mx-auto rounded-2xl bg-secondary border border-border p-6 sm:p-8 space-y-2.5">
-          <h2 className="text-base sm:text-lg font-black text-primary uppercase">
-            HOW TO BECOME A SURVIVAL TABS AFFILIATE?
+        {/* 3 Quick Steps to Start */}
+        <div className="max-w-4xl mx-auto rounded-2xl bg-secondary border border-border p-5 space-y-3">
+          <h2 className="text-sm sm:text-base font-black text-primary uppercase text-center sm:text-left">
+            How It Works in 3 Easy Steps
           </h2>
-          <p className="text-xs sm:text-sm text-foreground leading-relaxed">
-            The quality of the food we eat is more important than the quantity. Of a foods&apos; theoretical calorie content, 30-60% is unused by the body and converts to unhealthy fat. Survival Tabs are so completely and quickly digested they have a 99% absorption rate. Within five minutes of consuming the tabs, 97% of the protein is available to repair and replace essential body tissues and fluids. These tabs were created for the Early Space Program using high-quality protein, carbohydrates and fat to provide the body with 100% of the daily essential vitamins and minerals required to maintain physical functions such as dexterity, stamina and coordination.
-          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+            <div className="flex items-start gap-2.5 rounded-xl bg-card border border-border p-3">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-red-600 text-white font-black text-xs shrink-0">
+                1
+              </span>
+              <div>
+                <strong className="text-foreground block">Apply Online</strong>
+                <span className="text-muted-foreground text-[11px]">Instant pre-approval with zero sign-up fees.</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-2.5 rounded-xl bg-card border border-border p-3">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-red-600 text-white font-black text-xs shrink-0">
+                2
+              </span>
+              <div>
+                <strong className="text-foreground block">Share Links</strong>
+                <span className="text-muted-foreground text-[11px]">Place affiliate links and banners on your media.</span>
+              </div>
+            </div>
+            <div className="flex items-start gap-2.5 rounded-xl bg-card border border-border p-3">
+              <span className="flex h-6 w-6 items-center justify-center rounded-lg bg-red-600 text-white font-black text-xs shrink-0">
+                3
+              </span>
+              <div>
+                <strong className="text-foreground block">Get Paid</strong>
+                <span className="text-muted-foreground text-[11px]">Receive monthly PayPal payments on every checkout.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* 4 Steps Process Cards (Verbatim from User Screenshot) */}

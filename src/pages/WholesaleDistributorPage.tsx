@@ -71,9 +71,9 @@ export function WholesaleDistributorPage({
           </span>
         </div>
 
-        {/* Verbatim Narrative Paragraph */}
-        <p className="text-xs text-foreground max-w-3xl mx-auto leading-relaxed text-left">
-          Distribution is a key part of any product based business, right up there with production, sales, and shopper marketing. Just because you&apos;re a small company doesn&apos;t mean you can ignore the need for efficient and cost-effective distribution. It&apos;s common for companies to outsource this and operations like retail marketing for many reasons. If your company has some of these reasons in common it may be time to start considering working with a distributor.
+        {/* 1-Line Punchy Tagline with Key Highlights */}
+        <p className="text-xs sm:text-sm font-medium text-muted-foreground max-w-xl mx-auto leading-relaxed text-center">
+          Scale your retail store with direct US factory supply, Tier-1 bulk discounts, and 25-year shelf-life emergency rations.
         </p>
       </section>
 

@@ -188,51 +188,84 @@ export function ForeignExportPage({
         {/* 3 Core Functional Sections */}
         <div className="grid grid-cols-1 gap-4 text-left">
           {/* 1. The Main Purpose */}
-          <div className="rounded-2xl bg-secondary border border-border p-6 sm:p-7 space-y-3">
+          <div className="rounded-2xl bg-secondary border border-border p-5 space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground font-black text-sm">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-primary-foreground font-black text-xs">
                 1
               </span>
               <Compass className="h-5 w-5 text-primary" />
             </div>
-            <h2 className="text-base sm:text-lg font-black text-primary uppercase">
+            <h2 className="text-sm sm:text-base font-black text-primary uppercase">
               THE MAIN PURPOSE
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              Survival Tabs are meant to keep you alive and going for months at a time. A person can survive 4-5 months by eating The Survival Tabs exclusively. One daily serving of 12 tablets contains 240 calories, which gives the body the basic daily nourishment required when the recommended calorie intake cannot be met. The Survival Tabs eliminate the need to forage for food in situations where you are lost, stranded, or trapped.
-            </p>
+            <ul className="text-xs text-muted-foreground space-y-1.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong className="text-foreground">Sustained Survival:</strong> Enables 4–5 months survival when used exclusively.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong className="text-foreground">Daily Dose:</strong> 12 chewable tabs (240 kcal) fulfill daily survival nourishment.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">•</span>
+                <span><strong className="text-foreground">Zero Preparation:</strong> No cooking, water, or foraging required in crises.</span>
+              </li>
+            </ul>
           </div>
 
           {/* 2. Disaster Preparedness */}
-          <div className="rounded-2xl bg-secondary border border-border p-6 sm:p-7 space-y-3">
+          <div className="rounded-2xl bg-secondary border border-border p-5 space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-amber-500 text-white font-black text-sm">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-amber-500 text-white font-black text-xs">
                 2
               </span>
               <ShieldCheck className="h-5 w-5 text-amber-600" />
             </div>
-            <h2 className="text-base sm:text-lg font-black text-primary uppercase">
+            <h2 className="text-sm sm:text-base font-black text-primary uppercase">
               DISASTER PREPAREDNESS
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              In an emergency situation, one 180-tablet bottle of chewable tabs supplies a person with 15 days worth of survival food based on the recommended consumption of 12 tablets per day. This can be stretched to a 30-day supply under extreme conditions. The Survival Tabs remain usable for 90 days once opened, before losing their efficacy. They have an unopened shelf life of 25 years. This makes them ideal to store in preparation for natural disasters.
-            </p>
+            <ul className="text-xs text-muted-foreground space-y-1.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-amber-600 font-bold">•</span>
+                <span><strong className="text-foreground">25-Year Shelf Life:</strong> Unopened bottles retain potency for a quarter century.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-600 font-bold">•</span>
+                <span><strong className="text-foreground">15–30 Days Supply:</strong> 180 chewable tablets per bottle for flexible rationing.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-600 font-bold">•</span>
+                <span><strong className="text-foreground">Long Freshness:</strong> Remains fully viable 90 days after opening.</span>
+              </li>
+            </ul>
           </div>
 
           {/* 3. Advance Nutrition */}
-          <div className="rounded-2xl bg-secondary border border-border p-6 sm:p-7 space-y-3">
+          <div className="rounded-2xl bg-secondary border border-border p-5 space-y-2.5">
             <div className="flex items-center justify-between">
-              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 text-white font-black text-sm">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-600 text-white font-black text-xs">
                 3
               </span>
               <HeartPulse className="h-5 w-5 text-emerald-600" />
             </div>
-            <h2 className="text-base sm:text-lg font-black text-primary uppercase">
+            <h2 className="text-sm sm:text-base font-black text-primary uppercase">
               ADVANCE NUTRITION
             </h2>
-            <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              The quality of the food we eat is more important than the quantity. Of a foods&apos; theoretical calorie content, 30-60% is unused by the body and converts to unhealthy fat. The Survival Tabs are so completely and quickly digested they have a 99% absorption rate. Within five minutes of consuming the tabs, 97% of the protein is available to repair and replace essential body tissues and fluids. These tabs were created for the Early Space Program using high-quality protein, carbohydrates and fat to provide the body with 100% of the daily essential vitamins and minerals required to maintain physical functions such as dexterity, stamina and coordination.
-            </p>
+            <ul className="text-xs text-muted-foreground space-y-1.5 leading-relaxed">
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span><strong className="text-foreground">99% Absorption Rate:</strong> Nearly zero body waste; completely digested.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span><strong className="text-foreground">Rapid 5-Minute Action:</strong> 97% protein readily available to replenish stamina.</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-emerald-600 font-bold">•</span>
+                <span><strong className="text-foreground">Space-Grade Spec:</strong> 100% daily essential vitamins and minerals.</span>
+              </li>
+            </ul>
           </div>
         </div>
 

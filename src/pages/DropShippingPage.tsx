@@ -133,9 +133,9 @@ export function DropShippingPage({
             </span>
           </div>
 
-          {/* Introductory Paragraph verbatim from screenshot */}
-          <p className="text-sm sm:text-base text-foreground max-w-3xl mx-auto leading-relaxed text-justify sm:text-center pt-2">
-            If you&apos;re still wavering back-and-forth, hopefully this will help convince you why you should&mdash;along with the most important practices to ensure you can scale your business while keeping unnecessary stress at bay. Here are four reasons why you should start a drop shipping business, and why you&apos;re leaving money on the table if you don&apos;t:
+          {/* 1-Line Punchy Tagline */}
+          <p className="text-xs sm:text-sm font-medium text-muted-foreground max-w-xl mx-auto leading-relaxed text-center pt-1">
+            Sell directly on your store with zero inventory debt, automated fulfillment, and verified US brand trust.
           </p>
         </div>
 
