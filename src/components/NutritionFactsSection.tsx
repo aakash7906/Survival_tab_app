@@ -2,7 +2,7 @@ export function NutritionFactsSection() {
   return (
     <section
       id="nutrition"
-      className="relative w-full rounded-2xl sm:rounded-3xl bg-card border border-border p-4 sm:p-8 lg:p-14 shadow-sm overflow-hidden my-6 sm:my-8"
+      className="relative w-full rounded-3xl bg-card border border-border p-4 sm:p-6 shadow-xs overflow-hidden my-2 space-y-5"
     >
       {/* Subtle Winter Mountain / Cabin Background Silhouette matching official spec graphic */}
       <div

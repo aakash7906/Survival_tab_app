@@ -87,15 +87,12 @@ export function Iphone({
                 </div>
               </div>
 
-              {/* Scrollable Screen Content Container */}
-              <div
-                id="mobile-viewport-container"
-                className="w-full flex-1 overflow-y-auto overflow-x-hidden relative scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden select-text text-left"
-              >
+              {/* Device Screen Window */}
+              <div className="w-full flex-1 min-h-0 overflow-hidden relative flex flex-col select-text text-left">
                 {children}
 
                 {/* iOS Home Indicator Bar at the bottom */}
-                <div className="sticky bottom-1 inset-x-0 z-40 flex justify-center pointer-events-none pb-1 pt-1.5">
+                <div className="shrink-0 flex justify-center pointer-events-none pb-1 pt-0.5 bg-background z-40">
                   <div className="w-32 h-1 bg-foreground/25 rounded-full" />
                 </div>
               </div>

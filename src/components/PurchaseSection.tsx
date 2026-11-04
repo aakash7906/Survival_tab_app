@@ -90,11 +90,11 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
   }
 
   return (
-    <section id="purchase" className="w-full py-12 bg-background">
-      <div className="max-w-6xl mx-auto px-4 space-y-10">
+    <section id="purchase" className="w-full py-2 bg-background space-y-6">
+      <div className="w-full space-y-6">
 
         {/* Camping & Adventure Photo Banner Carousel - Auto-Swipes every 1.5s */}
-        <div className="relative w-full h-56 min-[480px]:h-72 sm:h-80 md:h-[420px] lg:h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm bg-primary">
+        <div className="relative w-full h-44 min-[400px]:h-52 sm:h-64 rounded-3xl overflow-hidden shadow-xs bg-primary border border-border">
           {bannerImages.map((img, idx) => (
             <div
               key={img.src}
@@ -110,17 +110,17 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
           ))}
 
           {/* Subtle bottom gradient & dot indicators */}
-          <div className="absolute inset-x-0 bottom-0 h-20 sm:h-24 bg-gradient-to-t from-primary/60 to-transparent z-20 pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-20 bg-gradient-to-t from-primary/70 to-transparent z-20 pointer-events-none" />
 
           {/* Dots Indicator */}
-          <div className="absolute bottom-3 sm:bottom-4 inset-x-0 flex items-center justify-center gap-1.5 sm:gap-2 z-30">
+          <div className="absolute bottom-2.5 sm:bottom-3 inset-x-0 flex items-center justify-center gap-1.5 z-30">
             {bannerImages.map((_, dotIdx) => (
               <button
                 key={dotIdx}
                 onClick={() => setCurrentSlide(dotIdx)}
-                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${dotIdx === currentSlide
-                    ? "w-6 sm:w-8 bg-primary-foreground"
-                    : "w-1.5 sm:w-2 bg-primary-foreground/50 hover:bg-primary-foreground/80"
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${dotIdx === currentSlide
+                    ? "w-5 bg-white"
+                    : "w-1.5 bg-white/50 hover:bg-white/80"
                   }`}
                 aria-label={`Go to slide ${dotIdx + 1}`}
               />
@@ -129,58 +129,58 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
         </div>
 
         {/* Section Heading */}
-        <div className="text-center space-y-2">
-          <h2 className="text-2xl min-[400px]:text-3xl sm:text-4xl font-light tracking-tight text-primary">
+        <div className="text-center space-y-1">
+          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary">
             Purchase Survival Tabs
           </h2>
-          <div className="h-0.5 w-16 bg-red-600 mx-auto" />
+          <div className="h-0.5 w-12 bg-red-600 mx-auto" />
         </div>
 
         {/* 5 Authentic Product Columns with Official Bottle Images */}
-        <div className="grid grid-cols-1 min-[340px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
           {products.map((p) => {
             const isAdded = addedId === p.id
 
             return (
               <div
                 key={p.id}
-                className="flex flex-col items-center justify-between text-center p-3.5 sm:p-4 rounded-2xl border border-border bg-card hover:shadow-lg transition-all"
+                className="flex flex-col items-center justify-between text-center p-3 sm:p-4 rounded-3xl border border-border bg-card shadow-xs hover:border-red-200 transition-all"
               >
                 {/* Official Product Bottle Image from public/images */}
-                <div className="relative w-full h-36 min-[400px]:h-40 sm:h-48 lg:h-52 flex items-center justify-center p-2 my-1 sm:my-2 group">
+                <div className="relative w-full h-32 min-[400px]:h-36 sm:h-44 flex items-center justify-center p-2 my-1 group">
                   {p.isNew && (
-                    <span className="absolute top-0 right-1 sm:right-2 z-10 rounded-full bg-red-600 text-primary-foreground text-[9px] font-black px-2 py-0.5 shadow-sm">
+                    <span className="absolute top-0 right-1 z-10 rounded-full bg-red-600 text-white text-[9px] font-black px-2 py-0.5 shadow-xs">
                       NEW!
                     </span>
                   )}
                   <img
                     src={p.image}
                     alt={p.name}
-                    className="max-h-full max-w-full object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+                    className="max-h-full max-w-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
                   />
                 </div>
 
                 {/* Flavor Illustration */}
-                <div className="text-[11px] sm:text-xs font-semibold text-muted-foreground mb-1">
+                <div className="text-[10px] sm:text-[11px] font-semibold text-muted-foreground mb-1 truncate w-full">
                   {p.illustration}
                 </div>
 
                 {/* Product Title */}
-                <h3 className="font-bold text-xs sm:text-sm text-primary leading-tight mb-2">
+                <h3 className="font-bold text-xs sm:text-sm text-primary leading-tight mb-1.5 line-clamp-2">
                   {p.name}
                 </h3>
 
                 {/* Price */}
-                <div className="font-black text-base sm:text-lg text-primary mb-3">
+                <div className="font-black text-sm sm:text-base text-primary mb-2.5">
                   ${p.price.toFixed(2)}
                 </div>
 
                 {/* Add to Cart Button */}
                 <button
                   onClick={() => handleAdd(p)}
-                  className={`w-full flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${isAdded
-                      ? "bg-emerald-600 text-primary-foreground"
-                      : "bg-red-600 hover:bg-red-700 text-primary-foreground shadow-sm hover:shadow active:scale-95"
+                  className={`w-full flex items-center justify-center gap-1.5 py-2 px-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 shadow-xs ${isAdded
+                      ? "bg-emerald-600 text-white"
+                      : "bg-red-600 hover:bg-red-700 text-white shadow-xs"
                     }`}
                 >
                   {isAdded ? (

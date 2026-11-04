@@ -1,91 +1,98 @@
-import { Clock, ShieldCheck, Truck } from "lucide-react"
+import { Clock, ShieldCheck, Truck, ArrowRight } from "lucide-react"
 
-export function Hero() {
-  const scrollToPurchase = () => {
+interface HeroProps {
+  onOrderNow?: () => void
+}
+
+export function Hero({ onOrderNow }: HeroProps) {
+  const handleOrder = () => {
+    if (onOrderNow) {
+      onOrderNow()
+      return
+    }
     const el = document.querySelector("#purchase")
     if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section id="hero" className="relative w-full overflow-hidden bg-background">
-      {/* Hero Wilderness Image Banner from survivaltabs.com with responsive height */}
-      <div className="relative w-full min-h-[480px] sm:min-h-[520px] lg:h-[560px] rounded-2xl sm:rounded-3xl overflow-hidden bg-primary shadow-md">
+    <section id="hero" className="w-full">
+      {/* Mobile App Spotlight Card Container */}
+      <div className="relative w-full rounded-3xl overflow-hidden bg-primary shadow-md border border-border">
+        {/* Background wilderness image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1501555088652-021faa106b9b?q=80&w=2400&auto=format&fit=crop')`,
           }}
         />
-        {/* Soft dark overlay for text contrast */}
-        <div className="absolute inset-0 bg-primary/45" />
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/95" />
 
-        {/* Hero Content */}
-        <div className="relative z-10 h-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-between py-6 sm:py-10 lg:py-12 text-primary-foreground text-center sm:text-left">
+        {/* Content */}
+        <div className="relative z-10 px-4 py-6 sm:p-7 flex flex-col justify-between text-primary-foreground space-y-4">
           
-          {/* Main Brand & Bottle Lockup */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 my-auto">
-            <div className="space-y-3 sm:space-y-4 max-w-xl">
-              {/* Target Brand Logo from public/images */}
-              <div className="inline-flex items-center gap-3 bg-primary/40 backdrop-blur-md px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-2xl border border-primary-foreground/20">
-                <img
-                  src="/images/survival_tabs_logo_outlined.png"
-                  alt="Survival Tabs"
-                  className="h-8 sm:h-11 md:h-12 w-auto object-contain"
-                />
-              </div>
+          {/* Top Pill: Emergency Mil-Spec Tag */}
+          <div className="flex items-center justify-between gap-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-600/90 text-white text-[10px] font-black uppercase tracking-wider shadow-xs">
+              <span>MIL-SPEC RATIONS</span>
+            </span>
 
-              <h1 className="text-2xl min-[400px]:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-primary-foreground drop-shadow-md leading-tight">
-                The Best Nutrition in the Smallest Packaging
+            <div className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 text-[10px] font-bold text-amber-300">
+              <Clock className="h-3 w-3 shrink-0" />
+              <span>25-Year Certified Shelf Life</span>
+            </div>
+          </div>
+
+          {/* Center Lockup: Headline + Bottle preview */}
+          <div className="flex items-center justify-between gap-3 pt-1">
+            <div className="space-y-2 flex-1">
+              <h1 className="text-xl min-[400px]:text-2xl sm:text-3xl font-black uppercase tracking-tight text-white leading-tight drop-shadow-sm">
+                The Best Nutrition in Smallest Packaging
               </h1>
 
-              <p className="text-primary-foreground/90 text-xs sm:text-base font-medium max-w-lg leading-relaxed">
-                Emergency food rations providing 100% of 15 essential vitamins and minerals. Certified 25-year shelf life.
+              <p className="text-white/80 text-xs sm:text-sm font-medium leading-relaxed max-w-xs">
+                100% of 15 essential vitamins &amp; minerals. Engineered for emergency survival kits.
               </p>
 
-              <div className="pt-1 sm:pt-2">
+              <div className="pt-2">
                 <button
-                  onClick={scrollToPurchase}
-                  className="rounded-full bg-red-600 hover:bg-red-700 text-primary-foreground font-bold px-5 sm:px-6 py-2.5 text-xs sm:text-sm shadow-md transition-all cursor-pointer hover:scale-105 active:scale-95"
+                  onClick={handleOrder}
+                  className="inline-flex items-center gap-2 rounded-2xl bg-red-600 hover:bg-red-700 active:scale-95 text-white font-black px-4 sm:px-5 py-2.5 text-xs uppercase tracking-wider shadow-md transition-all cursor-pointer"
                 >
-                  Order Rations Now
+                  <span>Order Rations</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
                 </button>
               </div>
             </div>
 
-            {/* Authentic Bottle Image seamlessly blended without harsh white background */}
-            <div className="relative shrink-0 flex flex-col items-center justify-center group translate-y-0 sm:translate-y-6 lg:translate-y-12">
-              {/* Soft warm ambient lighting behind bottle */}
-              <div className="absolute inset-0 bg-amber-400/20 blur-3xl rounded-full scale-110 pointer-events-none transition-opacity duration-300 group-hover:opacity-100 opacity-70" />
-              
+            {/* Bottle Image */}
+            <div className="relative shrink-0 flex items-center justify-center -mr-2">
+              <div className="absolute inset-0 bg-amber-400/20 blur-2xl rounded-full scale-110 pointer-events-none" />
               <img
                 src="/images/banana.png"
                 alt="The Survival Tabs Banana"
-                className="relative z-10 h-44 sm:h-56 lg:h-72 w-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.55)] group-hover:scale-105 transition-transform duration-300"
+                className="relative z-10 h-36 min-[400px]:h-44 sm:h-52 w-auto object-contain drop-shadow-2xl"
               />
             </div>
           </div>
 
-          {/* Authentic Pill Badges with Made in USA */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 sm:gap-2.5 lg:gap-3 pt-4 border-t border-primary-foreground/20 text-[11px] sm:text-xs font-semibold">
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
-              <Clock className="h-3.5 w-3.5 text-amber-400 shrink-0" />
-              <span>25-Year Shelf Life</span>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
-              <Truck className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+          {/* Bottom Trust Indicators Carousel */}
+          <div className="pt-3 border-t border-white/15 flex items-center gap-2 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden text-[10px] sm:text-[11px] font-semibold text-white/90">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-md shrink-0 border border-white/10">
+              <Truck className="h-3 w-3 text-emerald-400 shrink-0" />
               <span>Free Shipping Over $150</span>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
-              <ShieldCheck className="h-3.5 w-3.5 text-red-400 shrink-0" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-md shrink-0 border border-white/10">
+              <ShieldCheck className="h-3 w-3 text-red-400 shrink-0" />
               <span>Gluten-Free &amp; Non-GMO</span>
             </div>
-            <div className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-primary/60 backdrop-blur-md px-2.5 sm:px-3.5 py-1.5 border border-primary-foreground/15">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/10 backdrop-blur-md shrink-0 border border-white/10">
               <img
                 src="/images/made-in-usa.png"
                 alt="Made in USA"
-                className="h-3.5 sm:h-4 w-auto object-contain shrink-0"
+                className="h-3.5 w-auto object-contain shrink-0"
               />
-              <span>Made in the USA</span>
+              <span>100% Made in USA</span>
             </div>
           </div>
 
@@ -95,4 +102,4 @@ export function Hero() {
   )
 }
 
-export default Hero;
+export default Hero

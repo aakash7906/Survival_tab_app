@@ -1,5 +1,5 @@
 {
-  "name": "survivaltabs",
+  "name": "survivaltabsapp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,15 +11,10 @@
     "deploy": "npm run build && npx wrangler pages deploy dist"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.5.0",
     "@tailwindcss/vite": "^4.3.3",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
     "lucide-react": "^1.66.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-router-dom": "^7.18.5",
-    "tailwind-merge": "^3.7.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {

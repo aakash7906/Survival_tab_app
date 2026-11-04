@@ -17,7 +17,7 @@ interface TermsPageProps {
 
 export function TermsPage({ onNavigateHome, onNavigateContact }: TermsPageProps) {
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12 pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-24">
+    <div className="w-full max-w-3xl mx-auto px-4 space-y-6 pt-2 pb-12">
       {/* Breadcrumb Navigation */}
       <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
         <button
