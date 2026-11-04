@@ -18,7 +18,6 @@ export function CartPage({
   items,
   onUpdateQuantity,
   onRemoveItem,
-  onClearCart,
   onContinueShopping,
 }: CartPageProps) {
   const totalCount = items.reduce((acc, item) => acc + item.quantity, 0)
@@ -54,14 +53,6 @@ export function CartPage({
           </p>
         </div>
 
-        {items.length > 0 && (
-          <button
-            onClick={onClearCart}
-            className="text-xs font-semibold text-muted-foreground hover:text-destructive active:scale-95 transition-colors cursor-pointer"
-          >
-            Clear Cart
-          </button>
-        )}
       </div>
 
       {/* Free Shipping Progress Meter */}
@@ -127,7 +118,7 @@ export function CartPage({
                     <img
                       src={item.product.image}
                       alt={item.product.name}
-                      className="max-h-full max-w-full object-contain"
+                      className="max-h-full max-w-full object-contain mix-blend-multiply"
                     />
                   </div>
 
@@ -205,7 +196,7 @@ export function CartPage({
                 <span>Certified Shelf Life</span>
                 <span className="font-semibold text-accent flex items-center gap-1">
                   <CheckCircle2 className="h-3.5 w-3.5" />
-                  <span>25 Years Nitrogen-Sealed</span>
+                  {/* <span>25 Years Nitrogen-Sealed</span> */}
                 </span>
               </div>
 
@@ -239,23 +230,6 @@ export function CartPage({
               </button>
             </div>
 
-            {/* Security Guarantee Strip */}
-            <div className="pt-2 border-t border-border flex flex-wrap items-center justify-around gap-2 text-[10px] text-muted-foreground font-medium">
-              <span className="flex items-center gap-1">
-                <ShieldCheck className="h-3.5 w-3.5 text-accent" />
-                <span>256-Bit SSL Encryption</span>
-              </span>
-              <span>&bull;</span>
-              <span className="flex items-center gap-1">
-                <Lock className="h-3.5 w-3.5 text-accent" />
-                <span>Authorize.Net Verified</span>
-              </span>
-              <span>&bull;</span>
-              <span className="flex items-center gap-1">
-                <CheckCircle2 className="h-3.5 w-3.5 text-accent" />
-                <span>100% Made in USA</span>
-              </span>
-            </div>
           </div>
         </div>
       )}

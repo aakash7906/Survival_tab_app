@@ -145,8 +145,6 @@ const comparisonData: CompetitorComparison[] = [
 ]
 
 export function ForeignExportPage({
-  onNavigateHome,
-  onNavigateMakeMoney,
   onNavigateContact,
 }: ForeignExportPageProps) {
   const [formData, setFormData] = useState({
@@ -181,25 +179,6 @@ export function ForeignExportPage({
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4 space-y-6 pt-2 pb-12">
-      {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
-        <button
-          onClick={onNavigateHome}
-          className="hover:text-primary transition-colors cursor-pointer"
-        >
-          Home
-        </button>
-        <span>/</span>
-        <button
-          onClick={onNavigateMakeMoney}
-          className="hover:text-primary transition-colors cursor-pointer"
-        >
-          Make Money
-        </button>
-        <span>/</span>
-        <span className="text-primary font-semibold">Foreign Export</span>
-      </nav>
-
       {/* Main Header Card (Verbatim from Image 1) */}
       <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-4">
         <div className="space-y-2">

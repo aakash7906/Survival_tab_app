@@ -21,18 +21,6 @@ export function PrivacyPolicyPage({
 }: PrivacyPolicyPageProps) {
   return (
     <div className="w-full max-w-3xl mx-auto px-4 space-y-6 pt-2 pb-12">
-      {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
-        <button
-          onClick={onNavigateHome}
-          className="hover:text-primary transition-colors cursor-pointer"
-        >
-          Home
-        </button>
-        <span>/</span>
-        <span className="text-primary font-semibold">Privacy Policy</span>
-      </nav>
-
       {/* Header Banner */}
       <section className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">
         <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200 px-3 py-0.5 text-[11px] font-bold text-emerald-800 tracking-wider uppercase">

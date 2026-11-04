@@ -2,7 +2,6 @@ import { useState } from "react"
 import {
   ChevronDown,
   HelpCircle,
-  Search,
   CheckCircle2,
 } from "lucide-react"
 
@@ -240,11 +239,7 @@ const faqData: FaqItem[] = [
   }
 ]
 
-interface FaqPageProps {
-  onNavigateHome?: () => void
-}
-
-export function FaqPage({ onNavigateHome }: FaqPageProps) {
+export function FaqPage() {
   const [activeCategory, setActiveCategory] = useState<string>("all")
   const [searchQuery, setSearchQuery] = useState<string>("")
   const [openIds, setOpenIds] = useState<Record<string, boolean>>({})
@@ -292,51 +287,13 @@ export function FaqPage({ onNavigateHome }: FaqPageProps) {
 
   return (
     <div className="w-full max-w-3xl mx-auto px-4 space-y-6 pt-2 pb-12">
-      
-      {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
-        <button
-          onClick={onNavigateHome}
-          className="hover:text-red-600 transition-colors cursor-pointer"
-        >
-          Home
-        </button>
-        <span>/</span>
-        <span className="text-primary font-semibold">Frequently Asked Questions</span>
-      </nav>
-
       {/* Header Banner */}
       <div className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">  
         <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Frequently Asked Questions
         </h1>
 
-        <p className="text-xs sm:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Everything you need to know about The Survival Tabs: nutrition, 25-year shelf life,
-          daily consumption protocols, bio-availability, and emergency preparedness.
-        </p>
 
-        {/* Search Bar */}
-        <div className="max-w-xl mx-auto pt-2 sm:pt-4">
-          <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search questions (e.g. shelf life, calories, storage)..."
-              className="w-full pl-11 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm rounded-full bg-secondary border border-border text-primary placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-red-600/20 focus:border-red-600 transition-all shadow-xs"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-muted-foreground hover:text-primary"
-              >
-                Clear
-              </button>
-            )}
-          </div>
-        </div>
       </div>
 
       {/* Category Pills & Controls */}

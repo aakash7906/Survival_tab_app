@@ -35,7 +35,6 @@ export default function App() {
         name: "Survival Tabs Banana",
         flavor: "Banana",
         price: 39.95,
-        isNew: true,
         illustration: "🍌 Natural Banana",
         image: "/images/banana.png",
       },
@@ -323,7 +322,7 @@ export default function App() {
         )}
 
         {activeSubpage === "faq" && (
-          <FaqPage onNavigateHome={() => handleSelectTab("home")} />
+          <FaqPage />
         )}
 
         {activeSubpage === "testimonials" && (

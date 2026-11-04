@@ -1,4 +1,4 @@
-import { Hero } from "../components/Hero"
+
 import { EmergencyRationsSection } from "../components/EmergencyRationsSection"
 import { PurchaseSection, type ProductItem } from "../components/PurchaseSection"
 import { NutritionFactsSection } from "../components/NutritionFactsSection"
@@ -14,17 +14,6 @@ interface HomePageProps {
 export function HomePage({ onAddToCart, onNavigateTab, onNavigateSubpage }: HomePageProps) {
   return (
     <main className="w-full space-y-6 px-4 pt-3 pb-8">
-      {/* 1. Mobile Spotlight Hero */}
-      <Hero
-        onOrderNow={() => {
-          if (onNavigateTab) {
-            onNavigateTab("shop")
-          } else {
-            const el = document.querySelector("#purchase")
-            if (el) el.scrollIntoView({ behavior: "smooth" })
-          }
-        }}
-      />
 
       {/* 2. Quick Action App Tiles */}
       {onNavigateTab && (

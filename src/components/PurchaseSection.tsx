@@ -25,7 +25,6 @@ const products: ProductItem[] = [
     name: "Survival Tabs Banana",
     flavor: "Banana",
     price: 39.95,
-    isNew: true,
     illustration: "🍌 Natural Banana",
     image: "/images/banana.png",
   },
@@ -156,7 +155,7 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
                   <img
                     src={p.image}
                     alt={p.name}
-                    className="max-h-full max-w-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
+                    className="max-h-full max-w-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200 mix-blend-multiply"
                   />
                 </div>
 

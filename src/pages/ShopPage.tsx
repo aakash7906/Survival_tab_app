@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Check, ShoppingCart, Truck, ShieldCheck } from "lucide-react"
 import type { ProductItem } from "../components/PurchaseSection"
 
@@ -16,7 +16,6 @@ const products: ProductItem[] = [
     name: "Survival Tabs Banana",
     flavor: "Banana",
     price: 39.95,
-    isNew: true,
     illustration: "🍌 Natural Banana",
     image: "/images/banana.png",
   },
@@ -46,18 +45,6 @@ const products: ProductItem[] = [
   },
 ]
 
-const bannerImages = [
-  { src: "/banners/trekking-camping-hiking-and-wild-life-concept.jpeg", alt: "Trekking and Camping Wilderness Adventure" },
-  { src: "/banners/friends-camping-at-campsite.jpeg", alt: "Friends Camping at Scenic Campsite" },
-  { src: "/banners/party-camping-of-men-and-women-group-at-forest.jpeg", alt: "Group Forest Camping and Outdoor Exploration" },
-  { src: "/banners/everest-base-camp-mountains-landscape.jpeg", alt: "Everest Base Camp High Altitude Expedition" },
-  { src: "/banners/ama-dablam-mountain-in-himalaya-inspirational-2.jpeg", alt: "Ama Dablam Mountain Summit Expedition" },
-  { src: "/banners/alaskan-large.jpg", alt: "Alaskan Wilderness Survival Experience" },
-  { src: "/banners/airman-alaska_large.jpg", alt: "Airman Alaska Survival Preparedness" },
-  { src: "/banners/apollo-mission.jpeg", alt: "Apollo Mission Space Heritage" },
-  { src: "/banners/astronaut-in-outer-space-PLEE4QR.jpeg", alt: "Astronaut in Outer Space Space Food Nutrition" },
-]
-
 interface ShopPageProps {
   onAddToCart: (item: ProductItem) => void
   onOpenCart?: () => void
@@ -65,16 +52,7 @@ interface ShopPageProps {
 
 export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
   const [addedId, setAddedId] = useState<string | null>(null)
-  const [currentSlide, setCurrentSlide] = useState(0)
   const [selectedFlavorFilter, setSelectedFlavorFilter] = useState<string>("all")
-
-  // Auto-swipe banner carousel every 1.5 seconds
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % bannerImages.length)
-    }, 1500)
-    return () => clearInterval(timer)
-  }, [])
 
   const handleAdd = (p: ProductItem) => {
     onAddToCart(p)
@@ -87,7 +65,7 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
     : products.filter((p) => p.flavor.toLowerCase().includes(selectedFlavorFilter.toLowerCase()))
 
   return (
-    <div className="w-full space-y-5 px-4 pt-3 pb-8">
+    <div className="w-full space-y-4 px-4 pt-3 pb-8">
       {/* Top Value Banner */}
       <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-secondary/80 border border-border text-xs">
         <div className="flex items-center gap-1.5 font-bold text-primary">
@@ -97,53 +75,6 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
         <div className="flex items-center gap-1.5 text-[11px] font-semibold text-muted-foreground">
           <ShieldCheck className="h-3.5 w-3.5 text-red-600 shrink-0" />
           <span>25-Yr Shelf Life</span>
-        </div>
-      </div>
-
-      {/* Auto-Swiping Hero Stories Banner (Edge-to-Edge feel) */}
-      <div className="relative w-full h-44 min-[400px]:h-52 sm:h-64 rounded-3xl overflow-hidden shadow-sm bg-primary border border-border">
-        {bannerImages.map((img, idx) => (
-          <div
-            key={img.src}
-            className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-              idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-            }`}
-          >
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-full object-cover object-center"
-            />
-          </div>
-        ))}
-
-        {/* Ambient bottom gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent z-10 pointer-events-none" />
-
-        {/* Slide overlay text */}
-        <div className="absolute bottom-3 left-4 right-4 z-20 flex items-end justify-between">
-          <div className="space-y-0.5">
-            <span className="text-[10px] font-black uppercase tracking-wider text-amber-400 bg-black/40 px-2 py-0.5 rounded-md backdrop-blur-xs">
-              Expedition Grade Rations
-            </span>
-            <p className="text-xs font-bold text-white drop-shadow">
-              Proven on Everest &amp; Alaska Backcountry
-            </p>
-          </div>
-
-          {/* Dots Indicator */}
-          <div className="flex items-center gap-1">
-            {bannerImages.map((_, dotIdx) => (
-              <button
-                key={dotIdx}
-                onClick={() => setCurrentSlide(dotIdx)}
-                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                  dotIdx === currentSlide ? "w-4 bg-white" : "w-1.5 bg-white/40"
-                }`}
-                aria-label={`Go to slide ${dotIdx + 1}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
 
@@ -159,9 +90,7 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
             </p>
           </div>
 
-          <span className="text-[11px] font-bold text-red-600 bg-red-50 border border-red-200 px-2.5 py-1 rounded-full">
-            5 Flavors In Stock
-          </span>
+
         </div>
 
         {/* Horizontal Flavor Filter Scroll */}
@@ -209,7 +138,7 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
                 <img
                   src={p.image}
                   alt={p.name}
-                  className="max-h-full max-w-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200"
+                  className="max-h-full max-w-full object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-200 mix-blend-multiply"
                 />
               </div>
 

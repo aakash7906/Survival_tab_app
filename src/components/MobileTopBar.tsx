@@ -1,4 +1,4 @@
-import { ChevronLeft, ShoppingBag, Search, Phone } from "lucide-react"
+import { ChevronLeft, ShoppingBag, Phone } from "lucide-react"
 import { SurvivalLogo } from "./SurvivalLogo"
 
 interface MobileTopBarProps {
@@ -15,7 +15,7 @@ export function MobileTopBar({
   title,
   showBackButton = false,
   onBack,
-  onOpenSearch,
+ 
   cartCount = 0,
   onOpenCart,
   isRootTab = true,
@@ -61,18 +61,6 @@ export function MobileTopBar({
           >
             <Phone className="h-4 w-4 text-emerald-600" />
           </a>
-
-          {/* Quick Search Shortcut */}
-          {onOpenSearch && (
-            <button
-              onClick={onOpenSearch}
-              className="flex h-9 w-9 items-center justify-center rounded-xl bg-secondary text-primary hover:text-red-600 active:scale-95 transition-all cursor-pointer border border-border"
-              title="Search App"
-              aria-label="Search FAQs & Rations"
-            >
-              <Search className="h-4 w-4" />
-            </button>
-          )}
 
           {/* Cart Pill with Dynamic Badge */}
           {onOpenCart && (
