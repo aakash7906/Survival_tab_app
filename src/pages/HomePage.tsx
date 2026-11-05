@@ -8,9 +8,7 @@ import {
   Plus,
   DropletOff,
   Clock,
-  Compass,
   ArrowRight,
-  Sparkles,
   Award,
 } from "lucide-react"
 import type { ProductItem } from "../components/PurchaseSection"
@@ -45,7 +43,7 @@ const featuredProducts: ExtendedProductItem[] = [
     image: "/images/chocolate.png",
     colorBg: "from-amber-950/20 to-orange-950/10",
     pillColor: "border-amber-700/30 text-amber-900 bg-amber-50/70",
-    rating: "4.9 ★ (1,240+)",
+    rating: "4.9 ★",
   },
   {
     id: "st-banana",
@@ -56,7 +54,7 @@ const featuredProducts: ExtendedProductItem[] = [
     image: "/images/banana.png",
     colorBg: "from-amber-400/20 to-yellow-500/10",
     pillColor: "border-yellow-600/30 text-yellow-900 bg-yellow-50/70",
-    rating: "4.9 ★ (980+)",
+    rating: "4.9 ★",
   },
   {
     id: "Orange",
@@ -67,7 +65,7 @@ const featuredProducts: ExtendedProductItem[] = [
     image: "/images/orange.png",
     colorBg: "from-orange-500/20 to-amber-500/10",
     pillColor: "border-orange-600/30 text-orange-900 bg-orange-50/70",
-    rating: "4.8 ★ (820+)",
+    rating: "4.8 ★",
   },
   {
     id: "st-Maple",
@@ -78,7 +76,7 @@ const featuredProducts: ExtendedProductItem[] = [
     image: "/images/maple.png",
     colorBg: "from-amber-600/20 to-red-950/10",
     pillColor: "border-amber-800/30 text-amber-900 bg-amber-50/70",
-    rating: "4.9 ★ (640+)",
+    rating: "4.9 ★",
   },
   {
     id: "st-vanilla",
@@ -89,7 +87,7 @@ const featuredProducts: ExtendedProductItem[] = [
     image: "/images/vanila malt.png",
     colorBg: "from-stone-300/30 to-amber-100/20",
     pillColor: "border-stone-400/30 text-stone-900 bg-stone-50/70",
-    rating: "4.9 ★ (1,110+)",
+    rating: "4.9 ★",
   },
 ]
 
@@ -105,14 +103,38 @@ export function HomePage({ onAddToCart }: HomePageProps) {
   const [activeFlavorId, setActiveFlavorId] = useState("st-chocolate")
   const [addedItemMap, setAddedItemMap] = useState<Record<string, boolean>>({})
   const [bannerSlide, setBannerSlide] = useState(0)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
-  // Auto-slide banner images every 2.5s
+  // Auto-slide banner images every 3s
   useEffect(() => {
     const timer = setInterval(() => {
       setBannerSlide((prev) => (prev + 1) % bannerImages.length)
-    }, 2500)
+    }, 3000)
     return () => clearInterval(timer)
   }, [])
+
+  // Swipe detection for user gesture
+  const minSwipeDistance = 40
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+
+    if (isLeftSwipe) {
+      setBannerSlide((prev) => (prev + 1) % bannerImages.length)
+    } else if (isRightSwipe) {
+      setBannerSlide((prev) => (prev - 1 + bannerImages.length) % bannerImages.length)
+    }
+  }
 
   // Calculator calculations: 12 chewable tabs per person per day, 180 tabs per jar (15 days for 1 person)
   const totalTabsNeeded = persons * days * 12
@@ -141,9 +163,9 @@ export function HomePage({ onAddToCart }: HomePageProps) {
   const selectedProduct = featuredProducts.find((p) => p.id === activeFlavorId) || featuredProducts[0]
 
   return (
-    <main className="w-full space-y-6 px-4 pt-2 pb-12 font-sans">
-      {/* 1. TOP HERO SECTION (PRESERVED INTACT) */}
-      <section className="relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm">
+    <main className="w-full space-y-7 px-4 pt-4 sm:pt-5 pb-16 font-sans">
+      {/* 1. TOP HERO SECTION (PRESERVED INTACT WITH GENEROUS TOP CLEARANCE) */}
+      <section className="relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm mt-1 sm:mt-2">
         <div className="w-full overflow-hidden bg-card flex items-center justify-center">
           <img
             src="/images/hero_section_image.png"
@@ -154,18 +176,18 @@ export function HomePage({ onAddToCart }: HomePageProps) {
       </section>
 
       {/* 2. VALUE TRUST STRIP (Aesthetic & Customer Centric) */}
-      <section className="grid grid-cols-3 gap-2">
-        <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1">
+      <section className="grid grid-cols-3 gap-2.5 sm:gap-3 py-1">
+        <div className="flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1.5">
           <Clock className="h-4 w-4 text-destructive stroke-[2.2]" />
           <span className="text-xs font-black text-primary">25 Years</span>
           <span className="text-[10px] text-muted-foreground font-medium">Guaranteed Shelf</span>
         </div>
-        <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1">
+        <div className="flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1.5">
           <Zap className="h-4 w-4 text-amber-500 stroke-[2.2]" />
           <span className="text-xs font-black text-primary">99% Absorbed</span>
           <span className="text-[10px] text-muted-foreground font-medium">Zero Waste Energy</span>
         </div>
-        <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1">
+        <div className="flex flex-col items-center justify-center p-3.5 sm:p-4 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1.5">
           <Award className="h-4 w-4 text-accent stroke-[2.2]" />
           <span className="text-xs font-black text-primary">Space Heritage</span>
           <span className="text-[10px] text-muted-foreground font-medium">Apollo Tested</span>
@@ -173,14 +195,12 @@ export function HomePage({ onAddToCart }: HomePageProps) {
       </section>
 
       {/* 3. INTERACTIVE FLAVOR VAULT & QUICK-ADD CANISTERS */}
-      <section className="space-y-3">
+      <section className="space-y-3.5 py-1">
         <div className="flex items-center justify-between px-1">
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-black uppercase tracking-wider text-destructive">
-                Pure Nutrition Flavors
-              </span>
-            </div>
+          <div className="space-y-0.5">
+            <span className="text-[10px] font-black uppercase tracking-wider text-destructive">
+              Pure Nutrition Flavors
+            </span>
             <h3 className="text-base font-extrabold tracking-tight text-primary">
               Ready-To-Ship Canisters
             </h3>
@@ -188,7 +208,7 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
 
         {/* Horizontal Scrolling Modern Cards with Glow & Quick Action */}
-        <div className="flex gap-3.5 overflow-x-auto pb-2 pt-1 -mx-4 px-4 [scrollbar-width:none]">
+        <div className="flex gap-4 overflow-x-auto pb-3 pt-1 -mx-4 px-4 [scrollbar-width:none]">
           {featuredProducts.map((product) => {
             const isAdded = !!addedItemMap[product.id]
 
@@ -225,9 +245,6 @@ export function HomePage({ onAddToCart }: HomePageProps) {
                   <h4 className="text-xs font-black text-primary truncate leading-tight">
                     {product.name}
                   </h4>
-                  <p className="text-[10px] text-muted-foreground">
-                    15 Days of Complete Rations
-                  </p>
                   <div className="pt-0.5">
                     <span className="text-xs font-black text-destructive">
                       ${product.price.toFixed(2)}
@@ -263,7 +280,7 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
 
         {/* Swipe hint indicator aligned to the right */}
-        <div className="flex items-center justify-end gap-1.5 pt-0.5 px-1 text-muted-foreground/80">
+        <div className="flex items-center justify-end gap-1.5 pt-1 px-1 text-muted-foreground/80">
           <span className="text-[10px] font-bold tracking-wider uppercase text-muted-foreground">
             Swipe Flavors
           </span>
@@ -272,38 +289,34 @@ export function HomePage({ onAddToCart }: HomePageProps) {
       </section>
 
       {/* 4. COMPACT & MINIMAL SURVIVAL DAYS CALCULATOR */}
-      <section className="rounded-3xl bg-card p-4 sm:p-5 shadow-sm border border-border/60 space-y-3.5">
+      <section className="rounded-3xl bg-card p-5 sm:p-6 shadow-sm border border-border/60 space-y-4">
         {/* Compact Header */}
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-1.5">
-            <Compass className="h-4 w-4 text-destructive stroke-[2.2]" />
             <h2 className="text-sm sm:text-base font-extrabold tracking-tight text-primary">
               Ration Calculator
             </h2>
           </div>
-          <span className="text-[10px] font-bold text-muted-foreground bg-secondary px-2 py-0.5 rounded-full border border-border/50">
+          <span className="text-[10px] font-bold text-muted-foreground bg-secondary px-2.5 py-0.5 rounded-full border border-border/50">
             12 Tabs / Person / Day
           </span>
         </div>
 
         {/* Compact Row 1: Persons */}
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           <div className="flex items-center justify-between text-[11px]">
             <span className="font-semibold text-muted-foreground flex items-center gap-1">
               <Users className="h-3 w-3 text-muted-foreground" />
               Persons
             </span>
-            <span className="font-extrabold text-destructive text-xs">
-              {persons} {persons === 1 ? "Person" : "Persons"}
-            </span>
           </div>
-          <div className="grid grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-4 gap-2">
             {[1, 2, 3, 4].map((num) => (
               <button
                 key={num}
                 type="button"
                 onClick={() => setPersons(num)}
-                className={`py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 border ${
+                className={`py-2 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 border ${
                   persons === num
                     ? "bg-destructive text-white border-destructive shadow-xs"
                     : "bg-secondary/60 hover:bg-secondary text-primary border-border/50"
@@ -316,23 +329,20 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
 
         {/* Compact Row 2: Duration */}
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           <div className="flex items-center justify-between text-[11px]">
             <span className="font-semibold text-muted-foreground flex items-center gap-1">
               <Calendar className="h-3 w-3 text-muted-foreground" />
               Duration
             </span>
-            <span className="font-extrabold text-primary text-xs">
-              {days} Days Reserve
-            </span>
           </div>
-          <div className="grid grid-cols-4 gap-1.5">
+          <div className="grid grid-cols-4 gap-2">
             {[15, 30, 60, 90].map((d) => (
               <button
                 key={d}
                 type="button"
                 onClick={() => setDays(d)}
-                className={`py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 border ${
+                className={`py-2 rounded-xl text-xs font-bold transition-all cursor-pointer active:scale-95 border ${
                   days === d
                     ? "bg-primary text-primary-foreground border-primary shadow-xs"
                     : "bg-secondary/60 hover:bg-secondary text-primary border-border/50"
@@ -345,17 +355,17 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
 
         {/* Compact Row 3: Flavor Selector */}
-        <div className="space-y-1.5">
+        <div className="space-y-2">
           <span className="text-[11px] font-semibold text-muted-foreground block">
             Flavor
           </span>
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-0.5 [scrollbar-width:none]">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
             {featuredProducts.map((p) => (
               <button
                 key={p.id}
                 type="button"
                 onClick={() => setActiveFlavorId(p.id)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold shrink-0 transition-all cursor-pointer border ${
+                className={`px-3 py-1.5 rounded-xl text-xs font-semibold shrink-0 transition-all cursor-pointer border ${
                   activeFlavorId === p.id
                     ? "bg-card border-destructive text-destructive shadow-xs ring-1 ring-destructive/30"
                     : "bg-secondary/60 border-border/50 text-muted-foreground hover:text-foreground"
@@ -368,7 +378,7 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
 
         {/* Compact Summary & CTA */}
-        <div className="rounded-2xl bg-secondary/60 p-3 border border-border/60 space-y-2.5">
+        <div className="rounded-2xl bg-secondary/60 p-4 border border-border/60 space-y-3">
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
               <span className="text-xs sm:text-sm font-extrabold text-primary block leading-tight">
@@ -392,7 +402,7 @@ export function HomePage({ onAddToCart }: HomePageProps) {
           <button
             type="button"
             onClick={handleAddBundle}
-            className={`w-full py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-95 shadow-sm ${
+            className={`w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer transition-all active:scale-95 shadow-sm ${
               addedItemMap.bundle
                 ? "bg-accent text-accent-foreground"
                 : "bg-destructive hover:bg-destructive/90 text-white shadow-destructive/20"
@@ -415,7 +425,12 @@ export function HomePage({ onAddToCart }: HomePageProps) {
 
       {/* 5. PHOTO BANNER CAROUSEL FROM PURCHASE SECTION */}
       <section className="w-full">
-        <div className="relative w-full h-44 min-[400px]:h-52 sm:h-60 rounded-3xl overflow-hidden shadow-xs bg-primary border border-border">
+        <div
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+          className="relative w-full h-44 min-[400px]:h-52 sm:h-60 rounded-3xl overflow-hidden shadow-xs bg-primary border border-border select-none cursor-grab active:cursor-grabbing"
+        >
           {bannerImages.map((img, idx) => (
             <div
               key={img.src}
