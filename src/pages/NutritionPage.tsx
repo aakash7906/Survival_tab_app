@@ -269,46 +269,74 @@ export function NutritionPage() {
 
       {/* SEGMENT 2: Assimilation Science & Formulation Principles */}
       {activeSegment === "science" && (
-        <div className="space-y-4 animate-fade-in-up">
-          {/* 3 Scientific Principles Cards */}
-          <div className="rounded-2xl bg-secondary border border-border p-4 space-y-2">
-            <div className="flex items-center gap-2 text-primary font-black text-sm uppercase">
-              <Zap className="h-4 w-4 text-amber-500" />
-              <span>1. 99% Bio-Availability</span>
+        <div className="space-y-3.5 animate-fade-in-up">
+          {/* Card 1: 99% Bio-Availability */}
+          <div className="rounded-3xl bg-card p-4 sm:p-5 shadow-sm space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-primary font-extrabold text-sm uppercase tracking-tight">
+                <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+                  <Zap className="h-4 w-4" />
+                </div>
+                <span>1. 99% Cellular Absorption</span>
+              </div>
+              <span className="text-[10px] font-bold text-amber-700 bg-amber-500/10 px-2 py-0.5 rounded-full">
+                Zero Waste
+              </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              With most common foods, 30%&ndash;60% of the calorie content leaves the body completely unused. Survival Tabs are engineered to be 99% absorbed and directly converted to cellular ATP energy without producing digestive waste.
+              Converted directly into cellular ATP energy with near-zero digestive waste, compared to 30%–60% wasted calories in regular food.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-secondary border border-border p-4 space-y-2">
-            <div className="flex items-center gap-2 text-primary font-black text-sm uppercase">
-              <HeartPulse className="h-4 w-4 text-red-500" />
-              <span>2. Prevents Muscle Cannibalism</span>
+          {/* Card 2: Prevents Muscle Cannibalism */}
+          <div className="rounded-3xl bg-card p-4 sm:p-5 shadow-sm space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-primary font-extrabold text-sm uppercase tracking-tight">
+                <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-destructive/10 text-destructive">
+                  <HeartPulse className="h-4 w-4" />
+                </div>
+                <span>2. Halts Muscle Breakdown</span>
+              </div>
+              <span className="text-[10px] font-bold text-destructive bg-destructive/10 px-2 py-0.5 rounded-full">
+                5-Min Action
+              </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Within 5 minutes of chewing a tablet, 97% of the protein content is available to repair or replace vital blood, muscle, and nerve tissue, halting starvation catabolism.
+              Within 5 minutes of chewing, 97% of protein is bio-available to repair muscle and nerve tissue, preventing starvation catabolism.
             </p>
           </div>
 
-          <div className="rounded-2xl bg-secondary border border-border p-4 space-y-2">
-            <div className="flex items-center gap-2 text-primary font-black text-sm uppercase">
-              <Droplets className="h-4 w-4 text-emerald-600" />
-              <span>3. Zero Stoves or Water Required</span>
+          {/* Card 3: Zero Stoves or Water Required */}
+          <div className="rounded-3xl bg-card p-4 sm:p-5 shadow-sm space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-primary font-extrabold text-sm uppercase tracking-tight">
+                <div className="flex h-7 w-7 items-center justify-center rounded-xl bg-accent/10 text-accent">
+                  <Droplets className="h-4 w-4" />
+                </div>
+                <span>3. Zero-Prep Chewable</span>
+              </div>
+              <span className="text-[10px] font-bold text-accent bg-accent/10 px-2 py-0.5 rounded-full">
+                No Water Needed
+              </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Unlike freeze-dried pouch foods that demand boiling water, clean cups, and heating stoves, Survival Tabs can be chewed or dissolved straight from the bottle in extreme blizzards or flood conditions.
+              Ready to chew or dissolve straight from the canister during floods or blizzards—no stoves, clean cups, or boiling water required.
             </p>
           </div>
 
-          {/* Margin of Survival Note */}
-          <div className="rounded-2xl bg-primary text-primary-foreground p-5 space-y-2">
-            <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase tracking-wider">
-              <ShieldCheck className="h-4 w-4" />
-              <span>The Margin of Survival</span>
+          {/* Card 4: The Margin of Survival */}
+          <div className="rounded-3xl bg-primary text-primary-foreground p-4 sm:p-5 space-y-2 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-amber-400 font-extrabold text-xs uppercase tracking-wider">
+                <ShieldCheck className="h-4 w-4" />
+                <span>The Margin of Survival</span>
+              </div>
+              <span className="text-[10px] font-bold text-amber-300 bg-white/10 px-2 py-0.5 rounded-full">
+                12 Tabs / Day
+              </span>
             </div>
             <p className="text-xs text-primary-foreground/90 leading-relaxed">
-              In 90% of survival situations, individuals can supplement the tabs with whatever small amounts of food they might find (wild berries, fish, small game). Consuming 12 chewable tabs per day gives the full margin of survival to sustain life until rescue.
+              Supplements wild forage (berries, fish, game) to provide the full survival buffer required to sustain life and stamina until rescue.
             </p>
           </div>
         </div>

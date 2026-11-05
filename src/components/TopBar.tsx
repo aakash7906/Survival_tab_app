@@ -1,24 +1,23 @@
-import { ChevronLeft, ShoppingBag, Phone } from "lucide-react"
+import { ChevronLeft, User } from "lucide-react"
 import { SurvivalLogo } from "./SurvivalLogo"
 
-interface MobileTopBarProps {
+interface TopBarProps {
   title?: string
   showBackButton?: boolean
   onBack?: () => void
-  onOpenSearch?: () => void
-  cartCount?: number
-  onOpenCart?: () => void
+  onOpenProfile?: () => void
   isRootTab?: boolean
+  isProfileActive?: boolean
 }
 
-export function MobileTopBar({
+export function TopBar({
   title,
   showBackButton = false,
   onBack,
-  cartCount = 0,
-  onOpenCart,
+  onOpenProfile,
   isRootTab = true,
-}: MobileTopBarProps) {
+  isProfileActive = false,
+}: TopBarProps) {
   return (
     <header className="sticky top-0 z-40 w-full bg-card/85 backdrop-blur-xl border-b border-border/60 shadow-[0_1px_3px_rgba(0,0,0,0.02)] transition-colors">
       <div className="max-w-3xl mx-auto px-4 h-14 sm:h-16 flex items-center justify-between gap-3">
@@ -49,38 +48,24 @@ export function MobileTopBar({
           </div>
         )}
 
-        {/* Right Action Icons: Phone Call + Search + Cart */}
+        {/* Right: Native Profile Icon Button */}
         <div className="flex items-center gap-2 shrink-0">
-          {/* Quick Call hotline button */}
-          <a
-            href="tel:800-453-3238"
-            className="flex h-9 w-9 items-center justify-center rounded-2xl bg-secondary/80 text-primary hover:text-emerald-600 active:scale-90 transition-all cursor-pointer border border-border/50"
-            title="Toll-Free Support"
-            aria-label="Call Toll-Free Support"
+          <button
+            onClick={onOpenProfile}
+            className={`flex h-9 w-9 items-center justify-center rounded-2xl transition-all duration-200 cursor-pointer active:scale-90 border ${
+              isProfileActive
+                ? "bg-primary text-primary-foreground border-primary shadow-xs"
+                : "bg-secondary/80 hover:bg-secondary text-foreground border-border/60"
+            }`}
+            title="Profile"
+            aria-label="User Profile"
           >
-            <Phone className="h-4 w-4 text-emerald-600" />
-          </a>
-
-          {/* Cart Pill with Dynamic Badge */}
-          {onOpenCart && (
-            <button
-              onClick={onOpenCart}
-              className="relative flex h-9 w-9 items-center justify-center rounded-2xl bg-destructive hover:bg-destructive/90 text-destructive-foreground active:scale-90 transition-all cursor-pointer shadow-sm shadow-destructive/20"
-              title="View Rations Cart"
-              aria-label="Shopping Cart"
-            >
-              <ShoppingBag className="h-4 w-4 stroke-[2.2]" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-accent text-[10px] font-black text-accent-foreground ring-2 ring-card animate-pulse-subtle">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-          )}
+            <User className="h-4 w-4 stroke-[2]" />
+          </button>
         </div>
       </div>
     </header>
   )
 }
 
-export default MobileTopBar
+export default TopBar

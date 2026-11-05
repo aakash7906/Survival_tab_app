@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Check, ShoppingCart, Truck, ShieldCheck } from "lucide-react"
+import { Check, ShoppingCart, Search, X } from "lucide-react"
 import type { ProductItem } from "../components/PurchaseSection"
 
 const products: ProductItem[] = [
@@ -47,12 +47,12 @@ const products: ProductItem[] = [
 
 interface ShopPageProps {
   onAddToCart: (item: ProductItem) => void
-  onOpenCart?: () => void
 }
 
-export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
+export function ShopPage({ onAddToCart }: ShopPageProps) {
   const [addedId, setAddedId] = useState<string | null>(null)
   const [selectedFlavorFilter, setSelectedFlavorFilter] = useState<string>("all")
+  const [searchQuery, setSearchQuery] = useState<string>("")
 
   const handleAdd = (p: ProductItem) => {
     onAddToCart(p)
@@ -60,25 +60,22 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
     setTimeout(() => setAddedId(null), 1500)
   }
 
-  const filteredProducts = selectedFlavorFilter === "all"
-    ? products
-    : products.filter((p) => p.flavor.toLowerCase().includes(selectedFlavorFilter.toLowerCase()))
+  const filteredProducts = products.filter((p) => {
+    const matchesFilter =
+      selectedFlavorFilter === "all" ||
+      p.flavor.toLowerCase().includes(selectedFlavorFilter.toLowerCase())
+    const matchesSearch =
+      searchQuery.trim() === "" ||
+      p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.flavor.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.illustration.toLowerCase().includes(searchQuery.toLowerCase())
+    return matchesFilter && matchesSearch
+  })
 
   return (
     <div className="w-full space-y-4 px-4 pt-3 pb-8">
-      {/* Top Value Banner */}
-      <div className="flex items-center justify-between gap-2 p-2.5 rounded-2xl bg-secondary/80 border border-border text-xs">
-        <div className="flex items-center gap-1.5 font-bold text-primary">
-          <Truck className="h-4 w-4 text-emerald-600 shrink-0" />
-          <span>Free US Shipping Over $150</span>
-        </div>
-        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-muted-foreground">
-          <ShieldCheck className="h-3.5 w-3.5 text-red-600 shrink-0" />
-          <span>25-Yr Shelf Life</span>
-        </div>
-      </div>
 
-      {/* Header & Filter Chips */}
+      {/* Header & Search Bar & Filter Chips */}
       <div className="space-y-3 pt-1">
         <div className="flex items-center justify-between">
           <div>
@@ -86,11 +83,32 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
               Order Rations
             </h1>
             <p className="text-xs text-muted-foreground">
-              Select your favorite flavor or bundle canisters
+              Select your favorite flavor
             </p>
           </div>
+        </div>
 
-
+        {/* Native Mobile Search Bar */}
+        <div className="relative w-full">
+          <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-muted-foreground">
+            <Search className="h-4 w-4" />
+          </div>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search chocolate, banana, orange..."
+            className="w-full pl-10 pr-9 py-2.5 rounded-2xl bg-secondary/80 border border-border/70 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-destructive/20 focus:border-destructive transition-all"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-muted-foreground hover:text-foreground cursor-pointer"
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
         </div>
 
         {/* Horizontal Flavor Filter Scroll */}
@@ -187,20 +205,7 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
         })}
       </div>
 
-      {/* Floating View Cart Trigger Card */}
-      {onOpenCart && (
-        <div className="rounded-2xl bg-secondary border border-border p-3.5 flex items-center justify-between gap-3 text-xs">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-primary">Ready to review your rations?</span>
-          </div>
-          <button
-            onClick={onOpenCart}
-            className="font-bold text-red-600 hover:underline cursor-pointer"
-          >
-            Open Cart &rarr;
-          </button>
-        </div>
-      )}
+
     </div>
   )
 }

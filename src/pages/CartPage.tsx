@@ -30,29 +30,16 @@ export function CartPage({
 
   return (
     <div className="w-full max-w-2xl mx-auto px-4 space-y-4 pt-2 pb-12 font-sans">
-      {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-muted-foreground font-medium">
-        <button
-          onClick={onContinueShopping}
-          className="hover:text-foreground transition-colors cursor-pointer"
-        >
-          Shop
-        </button>
-        <span>/</span>
-        <span className="text-foreground font-semibold">Shopping Cart</span>
-      </nav>
-
       {/* Cart Page Title Header */}
       <div className="flex items-center justify-between py-1">
         <div className="space-y-0.5">
           <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-foreground">
-            Your Rations Cart
+            Your Cart
           </h1>
           <p className="text-xs text-muted-foreground font-medium">
             {totalCount} {totalCount === 1 ? "canister" : "canisters"} selected for emergency reserve
           </p>
         </div>
-
       </div>
 
       {/* Free Shipping Progress Meter */}

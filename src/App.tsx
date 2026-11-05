@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { Iphone } from "./components/ui/iphone"
-import { MobileTopBar } from "./components/MobileTopBar"
-import { MobileBottomNav, type AppTab } from "./components/MobileBottomNav"
+import { TopBar } from "./components/TopBar"
+import { MobileBottomNav, type AppTab } from "./components/BottomNav"
 import { CartPage, type CartItem } from "./pages/CartPage"
 import type { ProductItem } from "./components/PurchaseSection"
 
@@ -18,8 +18,9 @@ import { AboutPage } from "./pages/AboutPage"
 import { ContactUsPage } from "./pages/ContactUsPage"
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage"
 import { TermsPage } from "./pages/TermsPage"
+import { ProfilePage } from "./pages/ProfilePage"
 
-type Subpage = "faq" | "testimonials" | "about" | "contact" | "privacy" | "terms" | "cart" | null
+type Subpage = "faq" | "testimonials" | "about" | "contact" | "privacy" | "terms" | "cart" | "profile" | null
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<AppTab>("home")
@@ -93,6 +94,13 @@ export default function App() {
         setCurrentTab("more")
         setActiveSubpage("terms")
       } else if (
+        rawPath === "profile" ||
+        rawPath === "account" ||
+        rawHash === "profile" ||
+        rawHash === "account"
+      ) {
+        setActiveSubpage("profile")
+      } else if (
         rawPath === "cart" ||
         rawPath === "shopping-cart" ||
         rawPath === "checkout" ||
@@ -149,20 +157,20 @@ export default function App() {
   const handleSelectTab = (tab: AppTab) => {
     setCurrentTab(tab)
     setActiveSubpage(null)
-    const cleanUrl = tab === "home" ? "/" : `/#${tab}`
+    const cleanUrl = tab === "home" ? "/" : `/${tab}`
     window.history.pushState(null, "", cleanUrl)
     scrollContainerToTop()
   }
 
   const handleOpenSubpage = (subpage: string) => {
     setActiveSubpage(subpage as Subpage)
-    window.history.pushState(null, "", `/#${subpage}`)
+    window.history.pushState(null, "", `/${subpage}`)
     scrollContainerToTop()
   }
 
   const handleBackFromSubpage = () => {
     setActiveSubpage(null)
-    const cleanUrl = currentTab === "home" ? "/" : `/#${currentTab}`
+    const cleanUrl = currentTab === "home" ? "/" : `/${currentTab}`
     window.history.pushState(null, "", cleanUrl)
     scrollContainerToTop()
   }
@@ -232,19 +240,19 @@ export default function App() {
     privacy: "Privacy Policy",
     terms: "Security & Terms",
     cart: "Shopping Cart",
+    profile: "User Profile",
   }
 
   // Native Mobile App UI Content Shell
   const appContent = (
     <div className="flex flex-col flex-1 min-h-0 h-full w-full bg-background text-primary font-sans selection:bg-red-100 selection:text-red-900 overflow-hidden relative">
       {/* 1. Native Top App Bar */}
-      <MobileTopBar
+      <TopBar
         title={activeSubpage ? subpageTitles[activeSubpage] : undefined}
         showBackButton={!!activeSubpage}
         onBack={handleBackFromSubpage}
-        onOpenSearch={() => handleOpenSubpage("faq")}
-        cartCount={totalCartCount}
-        onOpenCart={() => handleOpenSubpage("cart")}
+        onOpenProfile={() => handleOpenSubpage("profile")}
+        isProfileActive={activeSubpage === "profile"}
         isRootTab={!activeSubpage}
       />
 
@@ -303,6 +311,13 @@ export default function App() {
           />
         )}
 
+        {activeSubpage === "profile" && (
+          <ProfilePage
+            onNavigateHome={() => handleSelectTab("home")}
+            onNavigateShop={() => handleSelectTab("shop")}
+          />
+        )}
+
         {/* Render Core Tabs when not in subpage */}
         {!activeSubpage && (
           <>
@@ -316,7 +331,6 @@ export default function App() {
             {currentTab === "shop" && (
               <ShopPage
                 onAddToCart={handleAddToCart}
-                onOpenCart={() => handleOpenSubpage("cart")}
               />
             )}
 
@@ -329,10 +343,12 @@ export default function App() {
         )}
       </div>
 
-      {/* 3. Fixed Native Bottom Tab Bar */}
+      {/* 3. Fixed Native Bottom Tab Bar with Center Cart Button */}
       <MobileBottomNav
         currentTab={currentTab}
         onSelectTab={handleSelectTab}
+        onOpenCart={() => handleOpenSubpage("cart")}
+        isCartActive={activeSubpage === "cart"}
         cartCount={totalCartCount}
       />
     </div>
