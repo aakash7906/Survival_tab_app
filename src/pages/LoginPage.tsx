@@ -24,18 +24,19 @@ export function LoginPage({
 
   return (
     <div className="w-full max-w-md mx-auto min-h-full px-5 py-6 flex flex-col justify-between font-sans animate-fade-in-up">
-      {/* Top Header / Branding */}
-      <div className="space-y-6">
-        <div>
-          <img
-            src="/images/survival_tabs_logo_outlined.png"
-            alt="Survival Tabs"
-            className="h-9 w-auto object-contain"
-          />
-        </div>
+      {/* 1. TOP: Centered Logo */}
+      <div className="w-full flex items-center justify-center pt-2 pb-4">
+        <img
+          src="/images/survival_tabs_logo_outlined.png"
+          alt="Survival Tabs"
+          className="h-10 sm:h-11 w-auto object-contain"
+        />
+      </div>
 
+      {/* 2. CENTER: Form & Core Content */}
+      <div className="w-full my-auto space-y-5 py-4">
         {/* Title */}
-        <div className="space-y-1.5 pt-2">
+        <div className="space-y-1 text-left">
           <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary">
             Welcome Back
           </h1>
@@ -45,7 +46,7 @@ export function LoginPage({
         </div>
 
         {/* Login Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 pt-2">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email Field */}
           <div className="space-y-1.5">
             <label className="text-xs font-bold text-primary block">
@@ -104,7 +105,7 @@ export function LoginPage({
           </div>
 
           {/* Remember Me Checkbox */}
-          <div className="flex items-center gap-2 pt-1">
+          <div className="flex items-center gap-2 pt-0.5">
             <input
               type="checkbox"
               id="rememberMe"
@@ -118,7 +119,7 @@ export function LoginPage({
           </div>
 
           {/* Submit Button */}
-          <div className="pt-2">
+          <div className="pt-1.5">
             <button
               type="submit"
               className="w-full py-3.5 rounded-2xl bg-destructive hover:bg-destructive/90 active:scale-[0.98] transition-all text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider cursor-pointer shadow-md shadow-destructive/20 flex items-center justify-center gap-2"
@@ -129,9 +130,9 @@ export function LoginPage({
           </div>
         </form>
 
-        {/* Skip Button in place of Demo Prepper Sign-In */}
+        {/* Skip Button */}
         {onBack && (
-          <div className="pt-2">
+          <div>
             <button
               type="button"
               onClick={onBack}
@@ -143,8 +144,8 @@ export function LoginPage({
         )}
       </div>
 
-      {/* Bottom Switch to Sign Up */}
-      <div className="pt-6 pb-2 text-center text-xs text-muted-foreground">
+      {/* 3. BOTTOM: Switch to Sign Up */}
+      <div className="w-full pt-4 pb-2 text-center text-xs text-muted-foreground">
         <span>Don't have an account? </span>
         <button
           type="button"

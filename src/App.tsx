@@ -265,6 +265,7 @@ export default function App() {
   }, [])
 
   const totalCartCount = cart.reduce((acc, item) => acc + item.quantity, 0)
+  const isAuthPage = activeSubpage === "login" || activeSubpage === "signup"
 
   // Subpage title dictionary for TopBar
   const subpageTitles: Record<string, string> = {
@@ -290,41 +291,43 @@ export default function App() {
         <OnboardingScreen onComplete={() => setShowOnboarding(false)} />
       )}
 
-      {/* 1. Native Top App Bar */}
-      <TopBar
-        title={
-          activeSubpage
-            ? subpageTitles[activeSubpage]
-            : currentTab === "cart"
-            ? "Shopping Cart"
-            : undefined
-        }
-        showBackButton={!!activeSubpage || currentTab === "cart"}
-        onBack={
-          currentTab === "cart" && !activeSubpage
-            ? () => handleSelectTab("home")
-            : handleBackFromSubpage
-        }
-        onOpenCart={() => {
-          handleSelectTab("cart")
-        }}
-        isCartActive={currentTab === "cart" && !activeSubpage}
-        cartCount={totalCartCount}
-        isRootTab={!activeSubpage && currentTab !== "cart"}
-        rightAction={
-          activeSubpage === "edit-profile" ? (
-            <button
-              onClick={() => {
-                // Return to profile on save
-                handleOpenSubpage("profile")
-              }}
-              className="px-2.5 py-1 text-xs font-bold text-destructive hover:text-destructive/80 active:scale-95 transition-all cursor-pointer"
-            >
-              Save
-            </button>
-          ) : undefined
-        }
-      />
+      {/* 1. Native Top App Bar (Hidden on Auth Screens) */}
+      {!isAuthPage && (
+        <TopBar
+          title={
+            activeSubpage
+              ? subpageTitles[activeSubpage]
+              : currentTab === "cart"
+              ? "Shopping Cart"
+              : undefined
+          }
+          showBackButton={!!activeSubpage || currentTab === "cart"}
+          onBack={
+            currentTab === "cart" && !activeSubpage
+              ? () => handleSelectTab("home")
+              : handleBackFromSubpage
+          }
+          onOpenCart={() => {
+            handleSelectTab("cart")
+          }}
+          isCartActive={currentTab === "cart" && !activeSubpage}
+          cartCount={totalCartCount}
+          isRootTab={!activeSubpage && currentTab !== "cart"}
+          rightAction={
+            activeSubpage === "edit-profile" ? (
+              <button
+                onClick={() => {
+                  // Return to profile on save
+                  handleOpenSubpage("profile")
+                }}
+                className="px-2.5 py-1 text-xs font-bold text-destructive hover:text-destructive/80 active:scale-95 transition-all cursor-pointer"
+              >
+                Save
+              </button>
+            ) : undefined
+          }
+        />
+      )}
 
       {/* 2. Scrollable Active Screen Container */}
       <div
@@ -443,13 +446,15 @@ export default function App() {
         )}
       </div>
 
-      {/* 3. Fixed Native Bottom Tab Bar with Profile Tab on the Right */}
-      <MobileBottomNav
-        currentTab={currentTab}
-        onSelectTab={handleSelectTab}
-        onOpenProfile={() => handleOpenSubpage("profile")}
-        isProfileActive={activeSubpage === "profile" || activeSubpage === "edit-profile"}
-      />
+      {/* 3. Fixed Native Bottom Tab Bar with Profile Tab on the Right (Hidden on Auth Screens) */}
+      {!isAuthPage && (
+        <MobileBottomNav
+          currentTab={currentTab}
+          onSelectTab={handleSelectTab}
+          onOpenProfile={() => handleOpenSubpage("profile")}
+          isProfileActive={activeSubpage === "profile" || activeSubpage === "edit-profile"}
+        />
+      )}
     </div>
   )
 
