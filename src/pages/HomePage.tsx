@@ -10,6 +10,8 @@ import {
   Clock,
   Compass,
   ArrowRight,
+  Sparkles,
+  Award,
 } from "lucide-react"
 import type { ProductItem } from "../components/PurchaseSection"
 import { EmergencyRationsSection } from "../components/EmergencyRationsSection"
@@ -27,46 +29,67 @@ const bannerImages = [
   { src: "/banners/astronaut-in-outer-space-PLEE4QR.jpeg", alt: "Astronaut in Outer Space Space Food Nutrition" },
 ]
 
-const featuredProducts: ProductItem[] = [
+interface ExtendedProductItem extends ProductItem {
+  colorBg: string
+  pillColor: string
+  rating: string
+}
+
+const featuredProducts: ExtendedProductItem[] = [
   {
     id: "st-chocolate",
     name: "Survival Tabs Chocolate",
     flavor: "Chocolate",
     price: 39.95,
-    illustration: "Roasted Cocoa",
+    illustration: "🍫 Roasted Cocoa",
     image: "/images/chocolate.png",
+    colorBg: "from-amber-950/20 to-orange-950/10",
+    pillColor: "border-amber-700/30 text-amber-900 bg-amber-50/70",
+    rating: "4.9 ★ (1,240+)",
   },
   {
     id: "st-banana",
     name: "Survival Tabs Banana",
     flavor: "Banana",
     price: 39.95,
-    illustration: "Natural Banana",
+    illustration: "🍌 Natural Banana",
     image: "/images/banana.png",
+    colorBg: "from-amber-400/20 to-yellow-500/10",
+    pillColor: "border-yellow-600/30 text-yellow-900 bg-yellow-50/70",
+    rating: "4.9 ★ (980+)",
   },
   {
     id: "Orange",
     name: "Survival Tabs Orange",
     flavor: "Orange",
     price: 39.95,
-    illustration: "Tangy Citrus",
-    image: "/images/orange.jpg",
+    illustration: "🍊 Tangy Citrus",
+    image: "/images/orange.png",
+    colorBg: "from-orange-500/20 to-amber-500/10",
+    pillColor: "border-orange-600/30 text-orange-900 bg-orange-50/70",
+    rating: "4.8 ★ (820+)",
   },
   {
     id: "st-Maple",
     name: "Survival Tabs Maple",
     flavor: "Maple",
     price: 39.95,
-    illustration: "Rich Maple",
-    image: "/images/maple.jpg",
+    illustration: "🍁 Rich Maple",
+    image: "/images/maple.png",
+    colorBg: "from-amber-600/20 to-red-950/10",
+    pillColor: "border-amber-800/30 text-amber-900 bg-amber-50/70",
+    rating: "4.9 ★ (640+)",
   },
   {
     id: "st-vanilla",
     name: "Survival Tabs Vanilla Malt",
     flavor: "Vanilla Malt",
     price: 39.95,
-    illustration: "Vanilla Bean",
+    illustration: "🌼 Vanilla Bean",
     image: "/images/vanila malt.png",
+    colorBg: "from-stone-300/30 to-amber-100/20",
+    pillColor: "border-stone-400/30 text-stone-900 bg-stone-50/70",
+    rating: "4.9 ★ (1,110+)",
   },
 ]
 
@@ -119,9 +142,8 @@ export function HomePage({ onAddToCart }: HomePageProps) {
 
   return (
     <main className="w-full space-y-6 px-4 pt-2 pb-12 font-sans">
-      {/* 1. TOP HERO SECTION WITH HERO_SECTION_IMAGE */}
+      {/* 1. TOP HERO SECTION (PRESERVED INTACT) */}
       <section className="relative rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm">
-        {/* Full Image Container without tight cropping */}
         <div className="w-full overflow-hidden bg-card flex items-center justify-center">
           <img
             src="/images/hero_section_image.png"
@@ -131,7 +153,125 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
       </section>
 
-      {/* 2. COMPACT & MINIMAL SURVIVAL DAYS CALCULATOR */}
+      {/* 2. VALUE TRUST STRIP (Aesthetic & Customer Centric) */}
+      <section className="grid grid-cols-3 gap-2">
+        <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1">
+          <Clock className="h-4 w-4 text-destructive stroke-[2.2]" />
+          <span className="text-xs font-black text-primary">25 Years</span>
+          <span className="text-[10px] text-muted-foreground font-medium">Guaranteed Shelf</span>
+        </div>
+        <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1">
+          <Zap className="h-4 w-4 text-amber-500 stroke-[2.2]" />
+          <span className="text-xs font-black text-primary">99% Absorbed</span>
+          <span className="text-[10px] text-muted-foreground font-medium">Zero Waste Energy</span>
+        </div>
+        <div className="flex flex-col items-center justify-center p-3 rounded-2xl bg-card border border-border/60 shadow-2xs text-center space-y-1">
+          <Award className="h-4 w-4 text-accent stroke-[2.2]" />
+          <span className="text-xs font-black text-primary">Space Heritage</span>
+          <span className="text-[10px] text-muted-foreground font-medium">Apollo Tested</span>
+        </div>
+      </section>
+
+      {/* 3. INTERACTIVE FLAVOR VAULT & QUICK-ADD CANISTERS */}
+      <section className="space-y-3">
+        <div className="flex items-center justify-between px-1">
+          <div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10px] font-black uppercase tracking-wider text-destructive">
+                Pure Nutrition Flavors
+              </span>
+            </div>
+            <h3 className="text-base font-extrabold tracking-tight text-primary">
+              Ready-To-Ship Canisters
+            </h3>
+          </div>
+        </div>
+
+        {/* Horizontal Scrolling Modern Cards with Glow & Quick Action */}
+        <div className="flex gap-3.5 overflow-x-auto pb-2 pt-1 -mx-4 px-4 [scrollbar-width:none]">
+          {featuredProducts.map((product) => {
+            const isAdded = !!addedItemMap[product.id]
+
+            return (
+              <div
+                key={product.id}
+                className="w-48 shrink-0 rounded-3xl bg-card border border-border/60 p-3.5 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-3 relative group"
+              >
+                {/* Product Image with Flavor Ambience Background */}
+                <div
+                  className={`relative aspect-square w-full rounded-2xl bg-gradient-to-br ${product.colorBg} flex items-center justify-center p-2 overflow-hidden border border-border/40`}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-28 w-28 object-contain transition-transform duration-300 group-hover:scale-108 drop-shadow-md"
+                  />
+                  {/* Flavor emoji tag */}
+                  <span className="absolute top-2 left-2 text-xs bg-card/90 backdrop-blur-md px-2 py-0.5 rounded-full border border-border/60 shadow-2xs font-bold text-primary">
+                    {product.illustration.split(" ")[0]}
+                  </span>
+                </div>
+
+                {/* Details */}
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.2 rounded-md border border-amber-200">
+                      {product.rating}
+                    </span>
+                    <span className="text-[10px] text-muted-foreground font-semibold">
+                      180 Tabs
+                    </span>
+                  </div>
+                  <h4 className="text-xs font-black text-primary truncate leading-tight">
+                    {product.name}
+                  </h4>
+                  <p className="text-[10px] text-muted-foreground">
+                    15 Days of Complete Rations
+                  </p>
+                  <div className="pt-0.5">
+                    <span className="text-xs font-black text-destructive">
+                      ${product.price.toFixed(2)}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Quick Add Button */}
+                <button
+                  type="button"
+                  onClick={() => handleQuickAdd(product)}
+                  className={`w-full py-2.5 rounded-xl font-extrabold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 transition-all shadow-2xs ${
+                    isAdded
+                      ? "bg-accent text-accent-foreground"
+                      : "bg-destructive hover:bg-destructive/90 text-white shadow-destructive/20"
+                  }`}
+                >
+                  {isAdded ? (
+                    <>
+                      <Check className="h-3.5 w-3.5 stroke-[2.8]" />
+                      <span>Added To Cart!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Plus className="h-3.5 w-3.5 stroke-[2.8]" />
+                      <span>Quick Add</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Swipe hint indicator aligned to the right */}
+        <div className="flex items-center justify-end gap-1.5 pt-0.5 px-1 text-muted-foreground/80">
+          <span className="text-[10px] font-bold tracking-wider uppercase text-muted-foreground">
+            Swipe Flavors
+          </span>
+          <ArrowRight className="h-3 w-3 animate-pulse text-muted-foreground" />
+        </div>
+      </section>
+
+      {/* 4. COMPACT & MINIMAL SURVIVAL DAYS CALCULATOR */}
       <section className="rounded-3xl bg-card p-4 sm:p-5 shadow-sm border border-border/60 space-y-3.5">
         {/* Compact Header */}
         <div className="flex items-center justify-between gap-2">
@@ -266,94 +406,16 @@ export function HomePage({ onAddToCart }: HomePageProps) {
             ) : (
               <>
                 <Plus className="h-3.5 w-3.5 stroke-[3]" />
-                <span>Add Items to Cart</span>
+                <span>Add Cache to Cart</span>
               </>
             )}
           </button>
         </div>
       </section>
 
-      {/* 3. INTERACTIVE QUICK-ADD FLAVOR CAROUSEL BAR */}
-      <section className="space-y-3">
-        <div className="flex items-center justify-between px-1">
-          <div>
-            <h3 className="text-base font-black text-primary">
-              Quick-Add Canisters
-            </h3>
-          </div>
-        </div>
-
-        {/* Horizontal Scrolling Flavor Cards */}
-        <div className="flex gap-3 overflow-x-auto pb-2 pt-1 -mx-4 px-4 [scrollbar-width:none]">
-          {featuredProducts.map((product) => {
-            const isAdded = !!addedItemMap[product.id]
-
-            return (
-              <div
-                key={product.id}
-                className="w-44 shrink-0 rounded-3xl bg-card border border-border/60 p-3.5 shadow-sm flex flex-col justify-between space-y-3"
-              >
-                <div className="relative aspect-square w-full rounded-2xl bg-secondary/50 flex items-center justify-center p-2 overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-28 w-28 object-contain transition-transform hover:scale-105 duration-300 drop-shadow-sm"
-                  />
-                  <span className="absolute top-2 left-2 text-xs">
-                    {product.illustration.split(" ")[0]}
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <h4 className="text-xs font-extrabold text-primary truncate">
-                    {product.name}
-                  </h4>
-                  <p className="text-[10px] text-muted-foreground">
-                    180 Chewable Tabs &bull; 15-Day Supply
-                  </p>
-                  <span className="text-xs font-black text-destructive block">
-                    ${product.price.toFixed(2)}
-                  </span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => handleQuickAdd(product)}
-                  className={`w-full py-2 rounded-xl font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer active:scale-95 transition-all ${
-                    isAdded
-                      ? "bg-accent text-accent-foreground"
-                      : "bg-secondary hover:bg-secondary/80 text-primary border border-border/60"
-                  }`}
-                >
-                  {isAdded ? (
-                    <>
-                      <Check className="h-3.5 w-3.5 stroke-[2.5]" />
-                      <span>Added!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Plus className="h-3.5 w-3.5 stroke-[2.5]" />
-                      <span>Quick Add</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Swipe hint indicator aligned to the right */}
-        <div className="flex items-center justify-end gap-1.5 pt-0.5 px-1 text-muted-foreground/80">
-          <span className="text-[11px] font-bold tracking-wider uppercase text-muted-foreground">
-            Swipe
-          </span>
-          <ArrowRight className="h-3.5 w-3.5 animate-pulse text-muted-foreground" />
-        </div>
-      </section>
-
-      {/* PHOTO BANNER FROM PURCHASE SECTION */}
+      {/* 5. PHOTO BANNER CAROUSEL FROM PURCHASE SECTION */}
       <section className="w-full">
-        <div className="relative w-full h-44 min-[400px]:h-52 sm:h-64 rounded-3xl overflow-hidden shadow-xs bg-primary border border-border">
+        <div className="relative w-full h-44 min-[400px]:h-52 sm:h-60 rounded-3xl overflow-hidden shadow-xs bg-primary border border-border">
           {bannerImages.map((img, idx) => (
             <div
               key={img.src}
@@ -390,10 +452,10 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
       </section>
 
-      {/* 4. SURVIVAL ADVANTAGE MATRIX (Interactive Chips) */}
+      {/* 6. SURVIVAL ADVANTAGE MATRIX (Why Survival Tabs Outperform MREs) */}
       <section className="rounded-3xl bg-card p-5 sm:p-6 shadow-sm border border-border/60 space-y-3">
         <h3 className="text-sm sm:text-base font-extrabold text-primary">
-          Why Survival Tabs Outperform MREs & Freeze-Dried Food
+          Why Survival Tabs Outperform MREs &amp; Freeze-Dried Food
         </h3>
 
         <div className="grid grid-cols-2 gap-2.5 pt-1">
@@ -431,10 +493,10 @@ export function HomePage({ onAddToCart }: HomePageProps) {
         </div>
       </section>
 
-      {/* 5. Complete Emergency Food Rations Section */}
+      {/* 8. COMPLETE EMERGENCY FOOD RATIONS SECTION */}
       <EmergencyRationsSection />
 
-      {/* 6. Survival Food Tab Concept Section (Video player & Space Program copy) */}
+      {/* 9. SURVIVAL FOOD TAB CONCEPT SECTION (Video Player & Space Heritage) */}
       <SurvivalConceptSection />
     </main>
   )

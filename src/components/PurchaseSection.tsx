@@ -34,7 +34,7 @@ const products: ProductItem[] = [
     flavor: "Orange",
     price: 39.95,
     illustration: "🍊 Orange",
-    image: "/images/orange.jpg",
+    image: "/images/orange.png",
   },
   {
     id: "st-Maple",
@@ -42,7 +42,7 @@ const products: ProductItem[] = [
     flavor: "Maple",
     price: 39.95,
     illustration: "🍁 Maple",
-    image: "/images/maple.jpg",
+    image: "/images/maple.png",
   },
   {
     id: "st-vanilla",
