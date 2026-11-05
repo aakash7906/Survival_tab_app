@@ -18,10 +18,26 @@ import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage"
 import { TermsPage } from "./pages/TermsPage"
 import { ProfilePage } from "./pages/ProfilePage"
 import { EditProfilePage, type UserProfileData } from "./pages/EditProfilePage"
+import { LoginPage } from "./pages/LoginPage"
+import { SignupPage } from "./pages/SignupPage"
+import { SplashScreen } from "./components/SplashScreen"
+import { OnboardingScreen } from "./components/OnboardingScreen"
 
-type Subpage = "faq" | "about" | "contact" | "privacy" | "terms" | "profile" | "edit-profile" | null
+type Subpage =
+  | "faq"
+  | "about"
+  | "contact"
+  | "privacy"
+  | "terms"
+  | "profile"
+  | "edit-profile"
+  | "login"
+  | "signup"
+  | null
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true)
+  const [showOnboarding, setShowOnboarding] = useState(true)
   const [currentTab, setCurrentTab] = useState<AppTab>("home")
   const [activeSubpage, setActiveSubpage] = useState<Subpage>(null)
 
@@ -88,6 +104,20 @@ export default function App() {
         rawHash === "terms-conditions"
       ) {
         setActiveSubpage("terms")
+      } else if (
+        rawPath === "login" ||
+        rawPath === "signin" ||
+        rawHash === "login" ||
+        rawHash === "signin"
+      ) {
+        setActiveSubpage("login")
+      } else if (
+        rawPath === "signup" ||
+        rawPath === "register" ||
+        rawHash === "signup" ||
+        rawHash === "register"
+      ) {
+        setActiveSubpage("signup")
       } else if (
         rawPath === "edit-profile" ||
         rawPath === "profile/edit" ||
@@ -245,11 +275,21 @@ export default function App() {
     terms: "Security & Terms",
     profile: "Profile",
     "edit-profile": "Edit Profile",
+    login: "Sign In",
+    signup: "Create Account",
   }
 
   // Native Mobile App UI Content Shell
   const appContent = (
     <div className="flex flex-col flex-1 min-h-0 h-full w-full bg-background text-primary font-sans selection:bg-red-100 selection:text-red-900 overflow-hidden relative">
+      {/* Native App Splash Screen */}
+      {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />}
+
+      {/* Native Onboarding Screen (Appears immediately after splash) */}
+      {!showSplash && showOnboarding && (
+        <OnboardingScreen onComplete={() => setShowOnboarding(false)} />
+      )}
+
       {/* 1. Native Top App Bar */}
       <TopBar
         title={
@@ -342,6 +382,33 @@ export default function App() {
               handleOpenSubpage("profile")
             }}
             onCancel={() => handleOpenSubpage("profile")}
+          />
+        )}
+
+        {activeSubpage === "login" && (
+          <LoginPage
+            onLoginSuccess={(email) => {
+              setUserProfile((prev) => ({ ...prev, email }))
+              handleOpenSubpage("profile")
+            }}
+            onNavigateSignup={() => handleOpenSubpage("signup")}
+            onBack={() => handleSelectTab("home")}
+          />
+        )}
+
+        {activeSubpage === "signup" && (
+          <SignupPage
+            onSignupSuccess={(data) => {
+              setUserProfile((prev) => ({
+                ...prev,
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+              }))
+              handleOpenSubpage("profile")
+            }}
+            onNavigateLogin={() => handleOpenSubpage("login")}
+            onBack={() => handleSelectTab("home")}
           />
         )}
 

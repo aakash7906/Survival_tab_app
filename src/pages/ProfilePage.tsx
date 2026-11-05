@@ -81,7 +81,7 @@ export function ProfilePage({
       </section>
 
       {/* 2. Primary Navigation & Action Menu Group */}
-      <section className="rounded-3xl bg-card shadow-sm border border-border/60 divide-y divide-border/60 overflow-hidden">
+      <section className="rounded-3xl bg-card shadow-sm border border-border/60 overflow-hidden">
         {/* Saved Rations & Orders */}
         <button
           onClick={() => alert("Recent Orders: 3 completed shipments to " + profileData.streetAddress)}
@@ -193,11 +193,15 @@ export function ProfilePage({
       {/* 3. Action Buttons (Logout & Delete Account) */}
       <div className="space-y-3 pt-2">
         <button
-          onClick={() => alert("Logged out of account")}
+          onClick={() => {
+            if (handleSubpage) {
+              handleSubpage("login")
+            }
+          }}
           className="w-full flex items-center justify-center gap-2 rounded-2xl bg-secondary/80 hover:bg-secondary text-primary font-bold py-3.5 text-xs sm:text-sm tracking-wide transition-all cursor-pointer active:scale-98 border border-border/70"
         >
           <LogOut className="h-4 w-4 stroke-[2]" />
-          <span>Logout</span>
+          <span>Logout / Switch Account</span>
         </button>
 
         <button
