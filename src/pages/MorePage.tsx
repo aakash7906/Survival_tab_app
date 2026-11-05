@@ -71,7 +71,7 @@ export function MorePage({ onNavigateSubpage }: MorePageProps) {
     <div className="w-full space-y-6 px-4 pt-3 pb-12">
       {/* Header */}
       <div className="space-y-1">
-        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary">
+        <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary">
           More &amp; Support
         </h1>
         <p className="text-xs text-muted-foreground">
@@ -85,7 +85,7 @@ export function MorePage({ onNavigateSubpage }: MorePageProps) {
           Knowledge &amp; Support
         </span>
 
-        <div className="rounded-3xl border border-border bg-card divide-y divide-border overflow-hidden shadow-xs">
+        <div className="rounded-3xl bg-card divide-y divide-border/50 overflow-hidden shadow-sm">
           {customerMenuItems.map((item) => {
             const Icon = item.icon
 
@@ -129,7 +129,7 @@ export function MorePage({ onNavigateSubpage }: MorePageProps) {
           Trust &amp; Legal Compliance
         </span>
 
-        <div className="rounded-3xl border border-border bg-card divide-y divide-border overflow-hidden shadow-xs">
+        <div className="rounded-3xl bg-card divide-y divide-border/50 overflow-hidden shadow-sm">
           {legalMenuItems.map((item) => {
             const Icon = item.icon
 
@@ -161,7 +161,7 @@ export function MorePage({ onNavigateSubpage }: MorePageProps) {
       </div>
 
       {/* Group 3: Direct Phone & Email Hotline Card */}
-      <div className="rounded-3xl border border-border bg-secondary p-4 sm:p-5 space-y-3">
+      <div className="rounded-3xl bg-secondary/80 p-4 sm:p-5 space-y-3 shadow-xs">
         <div className="flex items-center gap-2">
           <span className="text-xs font-bold uppercase tracking-wide text-primary">
             Direct Assistance

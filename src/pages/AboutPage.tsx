@@ -28,7 +28,7 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
           <span>MIL-SPEC NUTRITION &bull; SINCE 1960s SPACE PROGRAM</span>
         </div>
 
-        <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary max-w-4xl mx-auto leading-tight">
+        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary max-w-4xl mx-auto leading-tight">
           About Survival Tabs
         </h1>
 
@@ -131,7 +131,7 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
               <span>Historic Aerospace Origins</span>
             </div>
 
-            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary-foreground leading-tight">
+            <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary-foreground leading-tight">
               Evolved From the Early Space Program
             </h2>
 
@@ -365,7 +365,7 @@ export function AboutPage({ onNavigateHome, onOrderNow }: AboutPageProps) {
             <span>THE ULTIMATE RATION</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-primary-foreground">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-primary-foreground">
             BOTTOM LINE
           </h2>
 

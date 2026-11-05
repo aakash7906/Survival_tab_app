@@ -289,7 +289,7 @@ export function FaqPage() {
     <div className="w-full max-w-3xl mx-auto px-4 space-y-6 pt-2 pb-12">
       {/* Header Banner */}
       <div className="relative rounded-2xl bg-card border border-border p-5 sm:p-6 shadow-xs overflow-hidden text-center space-y-3">  
-        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Frequently Asked Questions
         </h1>
 

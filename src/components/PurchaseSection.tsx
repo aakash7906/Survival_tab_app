@@ -129,7 +129,7 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
 
         {/* Section Heading */}
         <div className="text-center space-y-1">
-          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary">
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary">
             Purchase Survival Tabs
           </h2>
           <div className="h-0.5 w-12 bg-red-600 mx-auto" />
@@ -143,7 +143,7 @@ export function PurchaseSection({ onAddToCart }: PurchaseSectionProps) {
             return (
               <div
                 key={p.id}
-                className="flex flex-col items-center justify-between text-center p-3 sm:p-4 rounded-3xl border border-border bg-card shadow-xs hover:border-red-200 transition-all"
+                className="flex flex-col items-center justify-between text-center p-3 sm:p-4 rounded-3xl bg-card shadow-sm hover:shadow active:scale-[0.98] transition-all"
               >
                 {/* Official Product Bottle Image from public/images */}
                 <div className="relative w-full h-32 min-[400px]:h-36 sm:h-44 flex items-center justify-center p-2 my-1 group">

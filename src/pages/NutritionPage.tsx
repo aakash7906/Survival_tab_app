@@ -8,7 +8,7 @@ export function NutritionPage() {
     <div className="w-full space-y-5 px-4 pt-3 pb-8">
       {/* Page Title & Subtitle */}
       <div className="space-y-1">
-        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary">
+        <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary">
           Nutrition &amp; Science
         </h1>
         <p className="text-xs text-muted-foreground">

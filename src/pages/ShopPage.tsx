@@ -82,7 +82,7 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
       <div className="space-y-3 pt-1">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary">
+            <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary">
               Order Rations
             </h1>
             <p className="text-xs text-muted-foreground">
@@ -126,7 +126,7 @@ export function ShopPage({ onAddToCart, onOpenCart }: ShopPageProps) {
           return (
             <div
               key={p.id}
-              className="flex flex-col justify-between rounded-3xl border border-border bg-card p-3 sm:p-4 shadow-xs hover:border-red-200 transition-all group"
+              className="flex flex-col justify-between rounded-3xl bg-card p-3 sm:p-4 shadow-sm hover:shadow active:scale-[0.98] transition-all group"
             >
               {/* Image Container */}
               <div className="relative w-full aspect-square rounded-2xl bg-secondary/50 flex items-center justify-center p-2 mb-2 overflow-hidden">

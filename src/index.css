@@ -2,7 +2,7 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
+    --background: #f8fafc;
     --foreground: #09090b;
     --card: #ffffff;
     --card-foreground: #09090b;
@@ -10,23 +10,24 @@
     --popover-foreground: #09090b;
     --primary: #09090b;
     --primary-foreground: #ffffff;
-    --secondary: #f4f4f5;
+    --secondary: #f1f5f9;
     --secondary-foreground: #09090b;
-    --muted: #f4f4f5;
-    --muted-foreground: #71717a;
+    --muted: #f1f5f9;
+    --muted-foreground: #64748b;
     --accent: #10b981;
     --accent-foreground: #ffffff;
     --destructive: #ef4444;
     --destructive-foreground: #ffffff;
-    --border: #e4e4e7;
-    --input: #e4e4e7;
+    --border: #e2e8f0;
+    --input: #e2e8f0;
     --ring: #10b981;
-    --radius: 1rem;
+    --radius: 1.25rem;
   }
 }
 
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -118,4 +119,9 @@ body {
 
 .animate-pulse-subtle {
   animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
 }

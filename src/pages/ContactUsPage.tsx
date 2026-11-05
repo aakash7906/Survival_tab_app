@@ -47,7 +47,7 @@ export function ContactUsPage({ onNavigateFaq }: ContactUsPageProps) {
           <span>DIRECT CUSTOMER &bull; WHOLESALE SUPPORT</span>
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Contact The Survival Tabs
         </h1>
 

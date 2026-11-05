@@ -1,12 +1,12 @@
 export function SurvivalConceptSection() {
   return (
-    <section id="concept" className="w-full rounded-3xl bg-card border border-border p-4 sm:p-6 shadow-xs space-y-4">
+    <section id="concept" className="w-full rounded-3xl bg-card p-4 sm:p-6 shadow-sm space-y-4">
       {/* Title */}
       <div className="space-y-1 text-left">
         <span className="text-[10px] font-black uppercase tracking-wider text-red-600 bg-red-50 border border-red-200 px-2.5 py-0.5 rounded-full inline-block">
           AEROSPACE TECHNOLOGY
         </span>
-        <h2 className="text-xl sm:text-2xl font-black tracking-tight text-primary uppercase">
+        <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary">
           SURVIVAL FOOD TAB CONCEPT
         </h2>
       </div>

@@ -2,7 +2,7 @@ export function NutritionFactsSection() {
   return (
     <section
       id="nutrition"
-      className="relative w-full rounded-3xl bg-card border border-border p-4 sm:p-6 shadow-xs overflow-hidden my-2 space-y-5"
+      className="relative w-full rounded-3xl bg-card p-4 sm:p-6 shadow-sm overflow-hidden my-2 space-y-5"
     >
       {/* Subtle Winter Mountain / Cabin Background Silhouette matching official spec graphic */}
       <div
@@ -38,7 +38,7 @@ export function NutritionFactsSection() {
       <div className="relative z-10 max-w-5xl mx-auto space-y-6 sm:space-y-8 font-sans">
         {/* Main Headline */}
         <div className="text-center space-y-2">
-          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary leading-tight">
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary leading-tight">
             DELICIOUS! NUTRITIOUS! EASY TO STORE!
           </h2>
           <p className="text-xs text-muted-foreground leading-relaxed max-w-2xl mx-auto pt-1 font-normal">

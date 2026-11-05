@@ -140,7 +140,7 @@ export function TestimonialsPage({ onNavigateHome, onOrderNow }: TestimonialsPag
           <span>VERIFIED CUSTOMER REVIEWS &bull; 4.9 / 5.0 RATING</span>
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Trusted in the Field for Over 40 Years
         </h1>
 

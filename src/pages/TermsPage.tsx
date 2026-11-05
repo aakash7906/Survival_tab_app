@@ -25,7 +25,7 @@ export function TermsPage({ onNavigateHome, onNavigateContact }: TermsPageProps)
           <span>OFFICIAL COMPLIANCE &bull; SECURITY STATEMENT</span>
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Terms and Conditions
         </h1>
 
@@ -158,7 +158,7 @@ export function TermsPage({ onNavigateHome, onNavigateContact }: TermsPageProps)
             <span>DIRECT INQUIRIES</span>
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary-foreground">
+          <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary-foreground">
             Questions Regarding Food Reserve, inc..
           </h2>
 

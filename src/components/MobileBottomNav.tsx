@@ -1,6 +1,6 @@
-import { Home, ShoppingBag, HeartPulse, TrendingUp, Compass } from "lucide-react"
+import { Home, ShoppingBag, HeartPulse, Compass } from "lucide-react"
 
-export type AppTab = "home" | "shop" | "nutrition" | "partners" | "more"
+export type AppTab = "home" | "shop" | "nutrition" | "more"
 
 interface MobileBottomNavProps {
   currentTab: AppTab
@@ -31,11 +31,6 @@ export function MobileBottomNav({
       icon: HeartPulse,
     },
     {
-      id: "partners" as AppTab,
-      label: "Partners",
-      icon: TrendingUp,
-    },
-    {
       id: "more" as AppTab,
       label: "More",
       icon: Compass,
@@ -43,8 +38,8 @@ export function MobileBottomNav({
   ]
 
   return (
-    <nav className="sticky bottom-0 inset-x-0 z-40 w-full shrink-0 bg-background/95 backdrop-blur-2xl border-t border-border shadow-[0_-4px_20px_rgba(0,0,0,0.06)] pb-[env(safe-area-inset-bottom,0.75rem)] mt-auto">
-      <div className="max-w-md sm:max-w-xl mx-auto px-2 h-14 min-[360px]:h-16 flex items-center justify-around">
+    <nav className="sticky bottom-0 inset-x-0 z-40 w-full shrink-0 bg-card/85 backdrop-blur-2xl border-t border-border/60 shadow-[0_-4px_24px_rgba(0,0,0,0.04)] pb-[env(safe-area-inset-bottom,0.75rem)] mt-auto">
+      <div className="max-w-md sm:max-w-xl mx-auto px-3 h-14 min-[360px]:h-16 flex items-center justify-around">
         {tabs.map((tab) => {
           const Icon = tab.icon
           const isActive = currentTab === tab.id
@@ -53,34 +48,36 @@ export function MobileBottomNav({
             <button
               key={tab.id}
               onClick={() => onSelectTab(tab.id)}
-              className={`relative flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-2xl transition-all duration-150 cursor-pointer select-none active:scale-90 ${
+              className={`relative flex flex-col items-center justify-center flex-1 py-1 px-1 rounded-2xl transition-all duration-200 cursor-pointer select-none active:scale-90 ${
                 isActive
-                  ? "text-red-600 font-bold"
+                  ? "text-destructive font-black"
                   : "text-muted-foreground hover:text-foreground font-medium"
               }`}
             >
               {/* Icon Container with Badge */}
               <div className="relative flex items-center justify-center h-6 w-6 mb-1">
                 <Icon
-                  className={`h-5 w-5 transition-transform duration-200 ${
-                    isActive ? "scale-110 stroke-[2.4]" : "stroke-[1.8]"
+                  className={`h-5 w-5 transition-all duration-200 ${
+                    isActive ? "scale-115 stroke-[2.5]" : "stroke-[1.75]"
                   }`}
                 />
                 {tab.badge && tab.badge > 0 && (
-                  <span className="absolute -top-1.5 -right-2 flex h-3.5 min-w-3.5 px-1 items-center justify-center rounded-full bg-red-600 text-[9px] font-black text-white">
+                  <span className="absolute -top-1.5 -right-2.5 flex h-4 min-w-4 px-1 items-center justify-center rounded-full bg-destructive text-[9px] font-black text-destructive-foreground ring-2 ring-card animate-pulse-subtle">
                     {tab.badge}
                   </span>
                 )}
               </div>
 
               {/* Label */}
-              <span className="text-[10px] leading-tight tracking-tight">
+              <span className={`text-[10px] leading-tight tracking-tight transition-all duration-150 ${
+                isActive ? "font-bold" : "font-medium"
+              }`}>
                 {tab.label}
               </span>
 
-              {/* Active Sub-Dot Indicator */}
+              {/* Native Active Tab Indicator Dot */}
               {isActive && (
-                <span className="absolute bottom-0 h-1 w-4 rounded-full bg-red-600 animate-fade-in-up" />
+                <span className="absolute -bottom-1 h-1 w-4 rounded-full bg-destructive transition-all duration-300" />
               )}
             </button>
           )

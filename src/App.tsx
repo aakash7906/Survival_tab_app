@@ -9,7 +9,6 @@ import type { ProductItem } from "./components/PurchaseSection"
 import { HomePage } from "./pages/HomePage"
 import { ShopPage } from "./pages/ShopPage"
 import { NutritionPage } from "./pages/NutritionPage"
-import { PartnersPage } from "./pages/PartnersPage"
 import { MorePage } from "./pages/MorePage"
 
 // Dedicated Sub-views (Accessible from More / Direct Links)
@@ -21,12 +20,10 @@ import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage"
 import { TermsPage } from "./pages/TermsPage"
 
 type Subpage = "faq" | "testimonials" | "about" | "contact" | "privacy" | "terms" | "cart" | null
-type PartnerProgram = "wholesale" | "dropship" | "export" | "affiliate"
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<AppTab>("home")
   const [activeSubpage, setActiveSubpage] = useState<Subpage>(null)
-  const [partnerProgram, setPartnerProgram] = useState<PartnerProgram>("wholesale")
 
   const [cart, setCart] = useState<CartItem[]>([
     {
@@ -124,60 +121,6 @@ export default function App() {
         rawHash === "concept"
       ) {
         setCurrentTab("nutrition")
-        setActiveSubpage(null)
-      } else if (
-        rawPath === "wholesale" ||
-        rawPath === "wholesale-distributor" ||
-        rawHash === "wholesale" ||
-        rawHash === "wholesale-distributor"
-      ) {
-        setCurrentTab("partners")
-        setPartnerProgram("wholesale")
-        setActiveSubpage(null)
-      } else if (
-        rawPath === "dropship" ||
-        rawPath === "drop-shipping" ||
-        rawPath === "dropshipping" ||
-        rawHash === "dropship" ||
-        rawHash === "drop-shipping" ||
-        rawHash === "dropshipping"
-      ) {
-        setCurrentTab("partners")
-        setPartnerProgram("dropship")
-        setActiveSubpage(null)
-      } else if (
-        rawPath === "export" ||
-        rawPath === "foreign-export" ||
-        rawPath === "international" ||
-        rawHash === "export" ||
-        rawHash === "foreign-export" ||
-        rawHash === "international"
-      ) {
-        setCurrentTab("partners")
-        setPartnerProgram("export")
-        setActiveSubpage(null)
-      } else if (
-        rawPath === "affiliate" ||
-        rawPath === "affiliate-program" ||
-        rawPath === "affiliates" ||
-        rawHash === "affiliate" ||
-        rawHash === "affiliate-program" ||
-        rawHash === "affiliates"
-      ) {
-        setCurrentTab("partners")
-        setPartnerProgram("affiliate")
-        setActiveSubpage(null)
-      } else if (
-        rawPath === "partners" ||
-        rawPath === "make-money" ||
-        rawPath === "makemoney" ||
-        rawPath === "resell" ||
-        rawHash === "partners" ||
-        rawHash === "make-money" ||
-        rawHash === "makemoney" ||
-        rawHash === "resell"
-      ) {
-        setCurrentTab("partners")
         setActiveSubpage(null)
       } else if (rawPath === "more" || rawHash === "more") {
         setCurrentTab("more")
@@ -366,7 +309,6 @@ export default function App() {
             {currentTab === "home" && (
               <HomePage
                 onAddToCart={handleAddToCart}
-                onNavigateTab={handleSelectTab}
                 onNavigateSubpage={handleOpenSubpage}
               />
             )}
@@ -379,14 +321,6 @@ export default function App() {
             )}
 
             {currentTab === "nutrition" && <NutritionPage />}
-
-            {currentTab === "partners" && (
-              <PartnersPage
-                initialProgram={partnerProgram}
-                onNavigateHome={() => handleSelectTab("home")}
-                onNavigateContact={() => handleOpenSubpage("contact")}
-              />
-            )}
 
             {currentTab === "more" && (
               <MorePage onNavigateSubpage={handleOpenSubpage} />
@@ -425,3 +359,4 @@ export default function App() {
     </div>
   )
 }
+

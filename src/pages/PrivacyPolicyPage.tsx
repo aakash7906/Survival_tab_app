@@ -28,7 +28,7 @@ export function PrivacyPolicyPage({
           <span>ZERO DATA BROKERING &bull; PRIVACY SINCE 1989</span>
         </div>
 
-        <h1 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-primary max-w-3xl mx-auto leading-tight">
+        <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary max-w-3xl mx-auto leading-tight">
           Privacy Policy
         </h1>
 
@@ -190,7 +190,7 @@ export function PrivacyPolicyPage({
             <span>FLAWLESS SECURITY RECORD</span>
           </div>
 
-          <h2 className="text-lg sm:text-xl font-black uppercase tracking-tight text-primary-foreground leading-snug">
+          <h2 className="text-lg sm:text-xl font-extrabold tracking-tight text-primary-foreground leading-snug">
             In our entire history there has never been a report of a misappropriated credit card number.
           </h2>
 
