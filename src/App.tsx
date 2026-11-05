@@ -9,22 +9,32 @@ import type { ProductItem } from "./components/PurchaseSection"
 import { HomePage } from "./pages/HomePage"
 import { ShopPage } from "./pages/ShopPage"
 import { NutritionPage } from "./pages/NutritionPage"
-import { MorePage } from "./pages/MorePage"
 
-// Dedicated Sub-views (Accessible from More / Direct Links)
+// Dedicated Sub-views (Accessible from Profile / Direct Links)
 import { FaqPage } from "./pages/FaqPage"
-import { TestimonialsPage } from "./pages/TestimonialsPage"
 import { AboutPage } from "./pages/AboutPage"
 import { ContactUsPage } from "./pages/ContactUsPage"
 import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage"
 import { TermsPage } from "./pages/TermsPage"
 import { ProfilePage } from "./pages/ProfilePage"
+import { EditProfilePage, type UserProfileData } from "./pages/EditProfilePage"
 
-type Subpage = "faq" | "testimonials" | "about" | "contact" | "privacy" | "terms" | "profile" | null
+type Subpage = "faq" | "about" | "contact" | "privacy" | "terms" | "profile" | "edit-profile" | null
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<AppTab>("home")
   const [activeSubpage, setActiveSubpage] = useState<Subpage>(null)
+
+  // Global user profile state
+  const [userProfile, setUserProfile] = useState<UserProfileData>({
+    name: "Captain Alex Reynolds",
+    email: "alex.reynolds@survivalist.org",
+    phone: "+1 (800) 453-3238",
+    primaryKit: "15-Day Chocolate Ration Jar",
+    streetAddress: "100 Outer Marker Road",
+    cityRegion: "Concordia, MO",
+    postalCode: "64020",
+  })
 
   const [cart, setCart] = useState<CartItem[]>([
     {
@@ -47,7 +57,6 @@ export default function App() {
       const rawHash = window.location.hash.toLowerCase().replace(/^#+/, "")
 
       if (rawPath === "faq" || rawHash === "faq") {
-        setCurrentTab("more")
         setActiveSubpage("faq")
       } else if (
         rawPath === "contact" ||
@@ -55,7 +64,6 @@ export default function App() {
         rawHash === "contact" ||
         rawHash === "contact-us"
       ) {
-        setCurrentTab("more")
         setActiveSubpage("contact")
       } else if (
         rawPath === "about" ||
@@ -63,25 +71,13 @@ export default function App() {
         rawHash === "about" ||
         rawHash === "about-us"
       ) {
-        setCurrentTab("more")
         setActiveSubpage("about")
-      } else if (
-        rawPath === "testimonials" ||
-        rawPath === "testimonial" ||
-        rawPath === "reviews" ||
-        rawHash === "testimonials" ||
-        rawHash === "testimonial" ||
-        rawHash === "reviews"
-      ) {
-        setCurrentTab("more")
-        setActiveSubpage("testimonials")
       } else if (
         rawPath === "privacy" ||
         rawPath === "privacy-policy" ||
         rawHash === "privacy" ||
         rawHash === "privacy-policy"
       ) {
-        setCurrentTab("more")
         setActiveSubpage("privacy")
       } else if (
         rawPath === "terms" ||
@@ -91,13 +87,21 @@ export default function App() {
         rawHash === "terms-and-conditions" ||
         rawHash === "terms-conditions"
       ) {
-        setCurrentTab("more")
         setActiveSubpage("terms")
+      } else if (
+        rawPath === "edit-profile" ||
+        rawPath === "profile/edit" ||
+        rawHash === "edit-profile" ||
+        rawHash === "profile/edit"
+      ) {
+        setActiveSubpage("edit-profile")
       } else if (
         rawPath === "profile" ||
         rawPath === "account" ||
         rawHash === "profile" ||
-        rawHash === "account"
+        rawHash === "account" ||
+        rawPath === "more" ||
+        rawHash === "more"
       ) {
         setActiveSubpage("profile")
       } else if (
@@ -130,9 +134,6 @@ export default function App() {
       ) {
         setCurrentTab("nutrition")
         setActiveSubpage(null)
-      } else if (rawPath === "more" || rawHash === "more") {
-        setCurrentTab("more")
-        setActiveSubpage(null)
       } else {
         setCurrentTab("home")
         setActiveSubpage(null)
@@ -155,6 +156,10 @@ export default function App() {
   }
 
   const handleSelectTab = (tab: AppTab) => {
+    if (tab === "profile") {
+      handleOpenSubpage("profile")
+      return
+    }
     setCurrentTab(tab)
     setActiveSubpage(null)
     const cleanUrl = tab === "home" ? "/" : `/${tab}`
@@ -234,12 +239,12 @@ export default function App() {
   // Subpage title dictionary for TopBar
   const subpageTitles: Record<string, string> = {
     faq: "Frequently Asked Questions",
-    testimonials: "Field Reviews & Reports",
     about: "About Survival Tabs",
     contact: "Contact & Support",
     privacy: "Privacy Policy",
     terms: "Security & Terms",
-    profile: "User Profile",
+    profile: "Profile",
+    "edit-profile": "Edit Profile",
   }
 
   // Native Mobile App UI Content Shell
@@ -247,12 +252,38 @@ export default function App() {
     <div className="flex flex-col flex-1 min-h-0 h-full w-full bg-background text-primary font-sans selection:bg-red-100 selection:text-red-900 overflow-hidden relative">
       {/* 1. Native Top App Bar */}
       <TopBar
-        title={activeSubpage ? subpageTitles[activeSubpage] : undefined}
-        showBackButton={!!activeSubpage}
-        onBack={handleBackFromSubpage}
-        onOpenProfile={() => handleOpenSubpage("profile")}
-        isProfileActive={activeSubpage === "profile"}
-        isRootTab={!activeSubpage}
+        title={
+          activeSubpage
+            ? subpageTitles[activeSubpage]
+            : currentTab === "cart"
+            ? "Shopping Cart"
+            : undefined
+        }
+        showBackButton={!!activeSubpage || currentTab === "cart"}
+        onBack={
+          currentTab === "cart" && !activeSubpage
+            ? () => handleSelectTab("home")
+            : handleBackFromSubpage
+        }
+        onOpenCart={() => {
+          handleSelectTab("cart")
+        }}
+        isCartActive={currentTab === "cart" && !activeSubpage}
+        cartCount={totalCartCount}
+        isRootTab={!activeSubpage && currentTab !== "cart"}
+        rightAction={
+          activeSubpage === "edit-profile" ? (
+            <button
+              onClick={() => {
+                // Return to profile on save
+                handleOpenSubpage("profile")
+              }}
+              className="px-2.5 py-1 text-xs font-bold text-destructive hover:text-destructive/80 active:scale-95 transition-all cursor-pointer"
+            >
+              Save
+            </button>
+          ) : undefined
+        }
       />
 
       {/* 2. Scrollable Active Screen Container */}
@@ -263,13 +294,6 @@ export default function App() {
         {/* Render Subpage if active */}
         {activeSubpage === "faq" && (
           <FaqPage />
-        )}
-
-        {activeSubpage === "testimonials" && (
-          <TestimonialsPage
-            onNavigateHome={() => handleSelectTab("home")}
-            onOrderNow={() => handleSelectTab("shop")}
-          />
         )}
 
         {activeSubpage === "about" && (
@@ -302,8 +326,22 @@ export default function App() {
 
         {activeSubpage === "profile" && (
           <ProfilePage
+            profileData={userProfile}
+            onNavigateEditProfile={() => handleOpenSubpage("edit-profile")}
             onNavigateHome={() => handleSelectTab("home")}
             onNavigateShop={() => handleSelectTab("shop")}
+            onNavigateSubpage={handleOpenSubpage}
+          />
+        )}
+
+        {activeSubpage === "edit-profile" && (
+          <EditProfilePage
+            initialData={userProfile}
+            onSave={(updated) => {
+              setUserProfile(updated)
+              handleOpenSubpage("profile")
+            }}
+            onCancel={() => handleOpenSubpage("profile")}
           />
         )}
 
@@ -334,21 +372,16 @@ export default function App() {
             )}
 
             {currentTab === "nutrition" && <NutritionPage />}
-
-            {currentTab === "more" && (
-              <MorePage onNavigateSubpage={handleOpenSubpage} />
-            )}
           </>
         )}
       </div>
 
-      {/* 3. Fixed Native Bottom Tab Bar with Center Cart Button */}
+      {/* 3. Fixed Native Bottom Tab Bar with Profile Tab on the Right */}
       <MobileBottomNav
         currentTab={currentTab}
         onSelectTab={handleSelectTab}
-        onOpenCart={() => handleSelectTab("cart")}
-        isCartActive={currentTab === "cart"}
-        cartCount={totalCartCount}
+        onOpenProfile={() => handleOpenSubpage("profile")}
+        isProfileActive={activeSubpage === "profile" || activeSubpage === "edit-profile"}
       />
     </div>
   )
