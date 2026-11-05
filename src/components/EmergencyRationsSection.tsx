@@ -2,7 +2,7 @@ import { ShieldCheck, PackageCheck, Zap, Droplets, Clock } from "lucide-react"
 
 export function EmergencyRationsSection() {
   return (
-    <section id="emergency" className="w-full space-y-4 text-left">
+    <section id="emergency" className="w-full space-y-5 text-left">
       {/* Section Header (Seamlessly on page canvas) */}
       <div className="space-y-1 px-1">
         <h2 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary">
@@ -37,8 +37,8 @@ export function EmergencyRationsSection() {
         </div>
       </div>
 
-      {/* 4 Feature Key Pillars (Clean Native Mobile Cards) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+      {/* 4 Feature Key Pillars (Clean Native Mobile Cards with Proper Spacing) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-1">
         <div className="rounded-2xl bg-card border border-border/60 p-4 flex items-start gap-3 shadow-2xs transition-all active:scale-[0.98]">
           <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100">
             <Droplets className="h-4 w-4 stroke-[2.2]" />
