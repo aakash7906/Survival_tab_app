@@ -98,7 +98,7 @@ export function ProfilePage({
                   1 IN TRANSIT
                 </span>
               </div>
-              <span className="text-xs text-muted-foreground">Track shipments and view past receipts</span>
+              <span className="text-xs text-muted-foreground">Track shipments</span>
             </div>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -115,7 +115,7 @@ export function ProfilePage({
             </div>
             <div>
               <span className="text-sm font-bold text-primary block">Contact Us</span>
-              <span className="text-xs text-muted-foreground">Call, email, or visit us in Concordia, MO</span>
+              <span className="text-xs text-muted-foreground">Call, email, or visit us</span>
             </div>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -132,7 +132,7 @@ export function ProfilePage({
             </div>
             <div>
               <span className="text-sm font-bold text-primary block">About Us</span>
-              <span className="text-xs text-muted-foreground">Our space program heritage &amp; 25-yr shelf life</span>
+              <span className="text-xs text-muted-foreground">Our space program heritage</span>
             </div>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -166,7 +166,7 @@ export function ProfilePage({
             </div>
             <div>
               <span className="text-sm font-bold text-primary block">Privacy Policy</span>
-              <span className="text-xs text-muted-foreground">Zero data broker sharing &amp; 256-bit encryption</span>
+              <span className="text-xs text-muted-foreground">Zero data broker sharing</span>
             </div>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -183,7 +183,7 @@ export function ProfilePage({
             </div>
             <div>
               <span className="text-sm font-bold text-primary block">Terms of Service</span>
-              <span className="text-xs text-muted-foreground">25-year guarantee warranty &amp; carrier fulfillment</span>
+              <span className="text-xs text-muted-foreground">25-year guarantee warranty</span>
             </div>
           </div>
           <ChevronRight className="h-4 w-4 text-muted-foreground" />
@@ -213,7 +213,7 @@ export function ProfilePage({
         </button>
 
         <span className="block text-center text-[10px] text-muted-foreground/60 pt-1">
-          SurvivalTabs® Mobile App v2.4.0 &bull; Mil-Spec Emergency Rations
+          SurvivalTabs® Mobile App &bull; Emergency Rations
         </span>
       </div>
     </div>

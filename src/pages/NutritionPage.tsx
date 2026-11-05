@@ -11,9 +11,6 @@ export function NutritionPage() {
         <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-primary">
           Nutrition &amp; Science
         </h1>
-        <p className="text-xs text-muted-foreground">
-          100% US RDA of 15 essential vitamins &bull; 99% Bio-Availability
-        </p>
       </div>
 
       {/* iOS Segmented Control Switcher */}
