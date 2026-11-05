@@ -20,7 +20,7 @@ import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage"
 import { TermsPage } from "./pages/TermsPage"
 import { ProfilePage } from "./pages/ProfilePage"
 
-type Subpage = "faq" | "testimonials" | "about" | "contact" | "privacy" | "terms" | "cart" | "profile" | null
+type Subpage = "faq" | "testimonials" | "about" | "contact" | "privacy" | "terms" | "profile" | null
 
 export default function App() {
   const [currentTab, setCurrentTab] = useState<AppTab>("home")
@@ -108,8 +108,8 @@ export default function App() {
         rawHash === "shopping-cart" ||
         rawHash === "checkout"
       ) {
-        setCurrentTab("shop")
-        setActiveSubpage("cart")
+        setCurrentTab("cart")
+        setActiveSubpage(null)
       } else if (
         rawPath === "shop" ||
         rawPath === "purchase" ||
@@ -239,7 +239,6 @@ export default function App() {
     contact: "Contact & Support",
     privacy: "Privacy Policy",
     terms: "Security & Terms",
-    cart: "Shopping Cart",
     profile: "User Profile",
   }
 
@@ -262,16 +261,6 @@ export default function App() {
         className="flex-1 w-full overflow-y-auto overflow-x-hidden relative scroll-smooth overscroll-y-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
       >
         {/* Render Subpage if active */}
-        {activeSubpage === "cart" && (
-          <CartPage
-            items={cart}
-            onUpdateQuantity={handleUpdateQuantity}
-            onRemoveItem={handleRemoveFromCart}
-            onClearCart={handleClearCart}
-            onContinueShopping={() => handleSelectTab("shop")}
-          />
-        )}
-
         {activeSubpage === "faq" && (
           <FaqPage />
         )}
@@ -334,6 +323,16 @@ export default function App() {
               />
             )}
 
+            {currentTab === "cart" && (
+              <CartPage
+                items={cart}
+                onUpdateQuantity={handleUpdateQuantity}
+                onRemoveItem={handleRemoveFromCart}
+                onClearCart={handleClearCart}
+                onContinueShopping={() => handleSelectTab("shop")}
+              />
+            )}
+
             {currentTab === "nutrition" && <NutritionPage />}
 
             {currentTab === "more" && (
@@ -347,8 +346,8 @@ export default function App() {
       <MobileBottomNav
         currentTab={currentTab}
         onSelectTab={handleSelectTab}
-        onOpenCart={() => handleOpenSubpage("cart")}
-        isCartActive={activeSubpage === "cart"}
+        onOpenCart={() => handleSelectTab("cart")}
+        isCartActive={currentTab === "cart"}
         cartCount={totalCartCount}
       />
     </div>
